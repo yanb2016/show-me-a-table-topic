@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import { Router } from '@angular/router';
+                        
+ 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   anthenticated: boolean = true;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.isAuthenticated();
