@@ -3,4 +3,5 @@ export class Topic {
   title: string;
   desc: string;
   tag: string;
+  likes: number
 }
