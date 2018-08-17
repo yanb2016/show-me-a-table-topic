@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopicsService } from '../../services/topics.service'
+import { TopicsService } from '../../services/topics.service';
 @Component({
   selector: 'app-popular-topics',
   templateUrl: './popular-topics.component.html',
