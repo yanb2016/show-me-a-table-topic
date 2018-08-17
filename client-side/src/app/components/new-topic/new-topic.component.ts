@@ -4,7 +4,8 @@ const DEFAULT_TOPIC = {
   id: 0,
   title: '',
   desc: '',
-  tag: 'life'
+  tag: 'life',
+  likes: 0
 }
 @Component({
   selector: 'app-new-topic',
