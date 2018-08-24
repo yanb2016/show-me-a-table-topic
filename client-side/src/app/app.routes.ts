@@ -5,7 +5,7 @@ import {NewTopicComponent} from './components/new-topic/new-topic.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', component: PopularTopicsComponent},
+  { path: 'home', component: AllTopicsComponent},
   { path: 'topics', component: AllTopicsComponent},
   { path: 'newTopic', component: NewTopicComponent},
 ];
