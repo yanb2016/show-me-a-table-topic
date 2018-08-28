@@ -1,0 +1,27 @@
+.difficulty, button{
+  min-width: 100px;
+  margin-right: 10px;
+}
+.badge.difficulty {
+  padding: 0.6em;
+  color: #fbfdfa;
+  font-size: 12px;
+}
+.title {
+  font-size: 1.2em;
+}
+.diff-easy {
+  background-color: #42ebf4;
+}
+.diff-medium {
+  background-color: #42eb76;
+}
+.diff-hard {
+  background-color: #f232e3;
+}
+.diff-super {
+  background-color: #f5dd3e;
+}
+.container {
+  margin-top: 10px;
+}

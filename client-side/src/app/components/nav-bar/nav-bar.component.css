@@ -1,0 +1,33 @@
+nav a {
+  justify-content: flex-start;
+  padding: 5px 10px;;
+  text-decoration: none;
+  margin: 10px 5px;;
+  display: inline-block;
+
+  border-radius: 4px;
+  
+}
+
+.navbar {
+  justify-content: flex-start;
+  margin-bottom: -1px;
+  padding:0px;
+}
+
+.bg-light {
+  background-color: #563d7c !important;
+
+}
+
+.navbar-brand {
+  color: white;
+}
+.nav-link {
+  color: #cbbde2 !important;
+  font-size: 1.25rem;
+}
+
+container {
+  margin-bottom: 10px;
+}

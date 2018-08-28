@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth } from '';
+import { AuthService } from '../../services/auth.service';
 
 import { Router } from '@angular/router';
 @Component({
@@ -13,24 +13,24 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   }
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
-  getUser() {
-    console.log('done!')
-    console.log(this.user);
-  }
+  // getUser() {
+  //   console.log('done!')
+  //   console.log(this.user);
+  // }
   // get diagnostic() { return this.user.email; }
   checkUser() {
-    event.preventDefault();
+    //event.preventDefault();
     const email = this.user.email;
     const password = this.user.password;
     // need to pass to server later
     console.log(email);
     console.log(password);
 
-    const url = 'http://' + window.location.hostname + ':3000/auth/login';
+    const url = 'http://' + window.location.hostname + ':3001/auth/login';
     const request = new Request(
       url,
       {
@@ -45,11 +45,12 @@ export class LoginComponent implements OnInit {
         })
     });
     fetch(request).then(response => {
+      console.log(response.json());
       if(response.status === 200) {
         this.errors = {};
         response.json().then(json => {
           console.log(json);
-          Auth.authenticateUser(json.token, email);
+          this.auth.authenticateUser(json.token, email);
           window.location.replace('/');
         })
       } 
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
         console.log('Login failed');
         response.json().then(json => {
           const errors = json.errors ? json.error: {};
-          this.errors['summary'] = json.message;
+          errors['summary'] = json.message;
         })
       }
     } 

@@ -1,0 +1,42 @@
+<div class="container">
+  <form #problemForm="ngForm">
+    <div [hidden]="problemForm.submitted">
+      <div class="form-group">
+        <label for="problemName">Name</label>
+        <input id="problemName" name="problemName" class="form-control" required
+          minlength="4" [(ngModel)]="newProblem.name" #name="ngModel"
+          value = {{problem.name}}>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="problemDesc">Problem description</label>
+        <textarea name = "problemDesc" id="problemDesc" class="form-control"
+          [(ngModel)] = "newProblem.desc" rows="3" value = {{problem.desc}}>
+        </textarea>
+      </div>
+      <div class="form-group">
+          <label for="problemDifficulty">Difficulty</label> 
+          <select class="form-control" id="difficulty" name="difficulty"
+          [(ngModel)] = "newProblem.difficulty">
+            <option *ngFor = "let difficulty of difficulties" [value] = "difficulty">
+              {{difficulty}}
+            </option>
+          </select>
+      </div>  
+      <button type="submit" class="btn btn-default" [disabled]="problemForm.invalid" (click)="updateProblem()">Submit</button>
+      <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
+    </div>
+
+    <div class="submitted-message" *ngIf="problemForm.submitted">
+      <button [routerLink]="['/problems']">Check list</button>
+    </div>
+  </form>
+</div>
+  
