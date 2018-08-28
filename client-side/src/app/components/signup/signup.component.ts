@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
     password: '',
     comfirmedPassword: ''
   }
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -52,7 +53,7 @@ export class SignupComponent implements OnInit {
     fetch(request).then(response => {
       if(response.status === 200) {    
         this.errors = {}  
-        //window.location.replace('/login');
+        this.router.navigateByUrl('/login');
       } else {
         response.json().then(json => {
           //console.log(json);
