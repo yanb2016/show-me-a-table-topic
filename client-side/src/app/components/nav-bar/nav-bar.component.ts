@@ -4,19 +4,23 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
 import { InputService } from '../../services/input.service';
-
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  user: string;
   searchBox: FormControl = new FormControl();
   subscription: Subscription;
-  autherized: boolean = true;
+  autherized: boolean;
   constructor(private input: InputService,
-              private router: Router) { }
+              private router: Router,
+              private auth: AuthService) { }
   ngOnInit() {
+    this.autherized = this.auth.isUserAuthenticated();
+    this.user = this.auth.getEmail();
     this.subscription = this.searchBox
     .valueChanges
     .pipe(debounceTime(200))
@@ -32,5 +36,10 @@ export class NavBarComponent implements OnInit {
 
   searchProblem(): void {
     this.router.navigate(['/problems']);
+  }
+  logout() {
+    this.autherized = !this.autherized;
+    this.user = '';
+    this.auth.deauthenticateUser();
   }
 }
