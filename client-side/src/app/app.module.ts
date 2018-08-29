@@ -8,11 +8,11 @@ import { routing } from './app.routes';
 import { NewTopicComponent } from './components/new-topic/new-topic.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EditorComponent } from './components/editor/editor.component';
 import { SearchPipe } from './pipes/search.pipe';
-import { TopicEditorComponent } from './components/problem-editor/problem-editor.component';
+import { TopicEditorComponent } from './components/topic-editor/topic-editor.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
+import { MostPopularTopicComponent } from './components/most-popular-topic/most-popular-topic.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +20,11 @@ import { LoginComponent } from './components/login/login.component';
     TopicDetailComponent,
     NewTopicComponent,
     NavBarComponent,
-    EditorComponent,
     SearchPipe,
     TopicEditorComponent,
     SignupComponent,
     LoginComponent,
+    MostPopularTopicComponent,
 
   ],
   imports: [
