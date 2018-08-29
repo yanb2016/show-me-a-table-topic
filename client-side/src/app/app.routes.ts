@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'topic/:id', component: TopicDetailComponent },
-  { path: 'topicEditor/:id', component: TopicEditorComponent },
-  { path: 'newproblem', component: NewTopicComponent },
+  { path: 'topic_ditor/:id', component: TopicEditorComponent },
+  { path: 'new_topic', component: NewTopicComponent },
   { path: '**', redirectTo: 'problems' }
 ];
 
