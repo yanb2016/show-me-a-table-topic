@@ -1,4 +1,5 @@
 <div class="container">
+  <h2>Most popular topics</h2>
   <div class="list-group">
     <a class="list-group-item" *ngFor="let topic of (topics | search: searchTerm)" [routerLink]="['/topic', topic.id]">
       <span class="{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}">
