@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,11 +17,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-
   registerUser() {
-    // prevent default action. in this case, action is the form submission event
-    // event.preventDefault();
-
     const email = this.newUser.email;
     const password = this.newUser.password;
     const confirm_password = this.newUser.comfirmedPassword;
@@ -65,21 +60,4 @@ export class SignupComponent implements OnInit {
     })
     
   }
-
-  // changeUser(event) {
-  //   const field = event.target.name;
-  //   const user = this.newUser;
-  //   user[field] = event.target.value;
-
-  //   this.setState({user});
-
-  //   const errors = this.state.errors;
-  //   if (this.state.user.password !== this.state.user.confirm_password) {
-  //     errors.password = "Password and Confirm Password don't match.";
-  //   } else {
-  //     errors.password = '';
-  //   }
-
-  //   this.setState({errors});
-  // }
 }

@@ -21,5 +21,6 @@
           [(ngModel)]="newUser.comfirmedPassword" name="password">
         </div>
       <button type="submit" class="btn btn-success" (click)="registerUser()">Submit</button>
+      <div class="form-group"> Already a member?<a [routerLink]="['/login']">Login</a></div>
     </form>
   </div>
