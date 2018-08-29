@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +13,7 @@ export class LoginComponent implements OnInit {
     password: ''
   }
   constructor(private auth: AuthService,
-              private router: Router
+              private router: Router,
              ) { }
 
   ngOnInit() {
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
   checkUser() {
     const email = this.user.email;
     const password = this.user.password;
-    const url = 'http://' + window.location.hostname + ':3001/auth/login';
+    const url = 'http://' + window.location.hostname + ':3000/auth/login';
     const request = new Request(
       url,
       {
@@ -43,6 +42,7 @@ export class LoginComponent implements OnInit {
         response.json().then(json => {
           this.auth.authenticateUser(json.token, email);
         });
+        location.reload();
         this.router.navigateByUrl('/'); 
       } else {
         console.log('Login failed');
