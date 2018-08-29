@@ -1,15 +1,15 @@
-<div class="container" *ngIf="problem">
+<div class="container" *ngIf="topic">
   <div class="col-sm-8 col-md-12">
     <div>
       <h2>
-        {{ problem.id}}. {{problem.name}}
+        {{ topic.id}}. {{topic.name}}
       </h2>
       <p>
-        {{problem.desc}}
+        {{topic.desc}}
+        {{topic.likes}}
       </p>
-      <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/problemeditor', problem.id]">Edit this problem</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="author===topic.author"[routerLink]="['/topicEditor', topic.id]">Edit this problem</button>
     </div>
     <div class="hidden-xs clo-sm-12 col-md-8"></div>
-    <app-editor></app-editor>
   </div>
 </div>
