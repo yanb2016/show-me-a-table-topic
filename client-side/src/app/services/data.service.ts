@@ -2,62 +2,63 @@ import { Injectable } from '@angular/core';
 import { Topic } from '../models/topic.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private _problemSource = new BehaviorSubject<Topic[]>([]);
-  constructor(private httpClient: HttpClient) { }
+  private _topicSource = new BehaviorSubject<Topic[]>([]);
+  constructor(private httpClient: HttpClient,
+              private auth: AuthService) { }
 
   getTopics(): Observable<Topic[]> {
-    this.httpClient.get('api/v1/problems')
+    this.httpClient.get('api/v1/topics')
       .toPromise()
       .then((res: any) => {
-        this._problemSource.next(res);
+        this._topicSource.next(res);
       })
       .catch(this.handleError);
-      return this._problemSource.asObservable();
+      return this._topicSource.asObservable();
   }
   getPopularTopics(): Observable<Topic[]> {
     this.httpClient.get('api/v1/popularTopics')
       .toPromise()
       .then((res: any) => {
-        this._problemSource.next(res);
+        this._topicSource.next(res);
       })
       .catch(this.handleError);
-      return this._problemSource.asObservable();
+      return this._topicSource.asObservable();
   }
   getTopic(id: number): Promise<Topic> {
-    return this.httpClient.get(`api/v1/problems/${id}`)
+    return this.httpClient.get(`api/v1/topics/${id}`)
       .toPromise()
       .then((res: any) => res)    
       .catch(this.handleError);
   }
-  addProblem(problem: Topic) {
+  addTopic(topic: Topic) {
     const options = {
       headers: new HttpHeaders({
-        'constent-type': 'application/json'
+        'constent-type': 'application/json',
+        'Authorization': 'bearer ' + this.auth.getToken()
       })
     };
-    return this.httpClient.post('api/v1/problems', problem, options)
+    return this.httpClient.post('editor/topics', topic, options)
     .toPromise()
     .then((res: any) => {
-      this.getTopics();
       return res;
     })
     .catch(this.handleError);
   }
-  updateProblem(problem: Topic) {
+  updateTopic(topic: Topic) {
     const options = {
       headers: new HttpHeaders({
-        'constent-type': 'application/json'
+        'constent-type': 'application/json',
+        'Authorization': 'bearer ' + this.auth.getToken()
       })
     };
-    return this.httpClient.put('api/v1/problems', problem, options)
+    return this.httpClient.put('editor/topics', topic, options)
     .toPromise()
     .then((res: any) => {
-      this.getTopics();
       return res;
     })
     .catch(this.handleError);
