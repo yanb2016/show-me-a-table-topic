@@ -1,10 +1,10 @@
 <div class="container">
-  <form #problemForm="ngForm">
-    <div [hidden]="problemForm.submitted">
+  <form #topicForm="ngForm">
+    <div [hidden]="topicForm.submitted">
       <div class="form-group">
-        <label for="problemName">Name</label>
-        <input id="problemName" name="problemName" class="form-control" required
-          minlength="4" appForbiddenName="bob" [(ngModel)]="newProblem.name" #name="ngModel"
+        <label for="topicName">Name</label>
+        <input id="topicName" name="topicName" class="form-control" required
+          minlength="4" [(ngModel)]="newTopic.name" #name="ngModel"
           placeholder="Input name here">
         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
           <div *ngIf="name.errors.required">
@@ -16,27 +16,27 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="problemDesc">Problem description</label>
-        <textarea name = "problemDesc" id="problemDesc" class="form-control"
-          placeholder="Input problem description" 
-          [(ngModel)] = "newProblem.desc" rows="3">
+        <label for="topicDesc">Topic description</label>
+        <textarea name = "topicDesc" id="topicDesc" class="form-control"
+          placeholder="Input topic description" 
+          [(ngModel)] = "newTopic.desc" rows="3">
         </textarea>
       </div>
       <div class="form-group">
-          <label for="problemDifficulty">Difficulty</label> 
-          <select class="form-control" id="difficulty" name="difficulty"
-          [(ngModel)] = "newProblem.difficulty">
-            <option *ngFor = "let difficulty of difficulties" [value] = "difficulty">
-              {{difficulty}}
+          <label for="topicCategory">Category</label> 
+          <select class="form-control" id="topicCategory" name="topicCategory"
+          [(ngModel)] = "newTopic.category">
+            <option *ngFor = "let category of categories" [value] = "category">
+              {{category}}
             </option>
           </select>
       </div>  
-      <button type="submit" class="btn btn-default" [disabled]="problemForm.invalid" (click)="addProblem()">Submit</button>
+      <button type="submit" class="btn btn-default" [disabled]="topicForm.invalid" (click)="addTopic()">Submit</button>
       <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
     </div>
 
-    <div class="submitted-message" *ngIf="problemForm.submitted">
-      <p>You've submitted your problem!</p>
+    <div class="submitted-message" *ngIf="topicForm.submitted">
+      <p>You've submitted your topic!</p>
       <button [routerLink]="['/problems']">Check list</button>
     </div>
   </form>
