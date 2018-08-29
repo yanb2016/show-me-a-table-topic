@@ -3,7 +3,7 @@ import { Topic } from '../../models/topic.model'
 import { DataService } from '../../services/data.service';
 import { AuthService } from '../../services/auth.service';
 
-const DEFAULT_PROBLEM = {
+const DEFAULT_TOPIC = {
   id: 0,
   name: '',
   desc: '',
@@ -16,19 +16,18 @@ const DEFAULT_PROBLEM = {
   styleUrls: ['./new-topic.component.css']
 })
 export class NewTopicComponent implements OnInit {
-  newTopic: Topic = Object.assign({},DEFAULT_PROBLEM);
+  newTopic: Topic = Object.assign({},DEFAULT_TOPIC);
   categories: string[] = ['tv', 'life', 'study', 'globalization']
   constructor(private dataService: DataService,
               private auth: AuthService) { }
-  // problems = this.dataService.getProblems();
   ngOnInit() {
     this.newTopic.author = this.auth.getEmail();
   }
 
   addTopic() {
-    this.dataService.addProblem(this.newTopic);
+    this.dataService.addTopic(this.newTopic);
   }
   resetForm() {
-    this.newTopic = Object.assign({},DEFAULT_PROBLEM)
+    this.newTopic = Object.assign({},DEFAULT_TOPIC)
   }
 }

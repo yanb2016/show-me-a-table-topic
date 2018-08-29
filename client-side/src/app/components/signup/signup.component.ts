@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    const url = 'http://' + window.location.hostname + ':3001/auth/signup';
+    const url = 'http://' + window.location.hostname + ':3000/auth/signup';
     const request = new Request(
       url,
       {
