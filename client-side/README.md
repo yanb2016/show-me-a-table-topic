@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ ## encountered difficuties
+
+# after redirecting to homepage from login page, nav-bar not refreshed automaticly
+
+1 tried subscribe a oberserable not working since just init when nav bar page load
+2. use location.reload() the whole page. to force nav-bar re-init to get data updated
+
+# how to avoid unlogedin user to have access to add and edit component?
