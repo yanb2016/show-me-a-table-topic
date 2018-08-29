@@ -201,8 +201,8 @@ var routes = [
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
     { path: 'signup', component: _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__["SignupComponent"] },
     { path: 'topic/:id', component: _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_2__["TopicDetailComponent"] },
-    { path: 'topicEditor/:id', component: _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_6__["TopicEditorComponent"] },
-    { path: 'newproblem', component: _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_3__["NewTopicComponent"] },
+    { path: 'topic_ditor/:id', component: _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_6__["TopicEditorComponent"] },
+    { path: 'new_topic', component: _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_3__["NewTopicComponent"] },
     { path: '**', redirectTo: 'problems' }
 ];
 var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes);
@@ -272,21 +272,7 @@ var LoginComponent = /** @class */ (function () {
         var _this = this;
         var email = this.user.email;
         var password = this.user.password;
-        // const url = 'http://' + window.location.hostname + ':3001/auth/login';
-        // const request = new Request(
-        //   url,
-        //   {
-        //     method: 'POST', 
-        //     headers: {
-        //       'Accept': 'application/json',
-        //       'Content.Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //       email: email,
-        //       password: password
-        //     })
-        // });
-        var url = 'http://' + window.location.hostname + ':3001/auth/login';
+        var url = 'http://' + window.location.hostname + ':3000/auth/login';
         var request = new Request(url, {
             method: 'POST',
             headers: {
@@ -303,8 +289,8 @@ var LoginComponent = /** @class */ (function () {
                 _this.errors = {};
                 response.json().then(function (json) {
                     _this.auth.authenticateUser(json.token, email);
-                    //this.auth.isUserAuthenticated();
                 });
+                location.reload();
                 _this.router.navigateByUrl('/');
             }
             else {
@@ -340,7 +326,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}"
+module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\nh2 {\n  color: saddlebrown;\n}"
 
 /***/ }),
 
@@ -351,7 +337,7 @@ module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"list-group\">\n    <a class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\" [routerLink]=\"['/topic', topic.id]\">\n      <span class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\">\n        {{topic.category}}\n      </span>\n      <strong class=\"title\"> {{topic.name}}</strong>\n    </a>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <h2>Most popular topics</h2>\n  <div class=\"list-group\">\n    <a class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\" [routerLink]=\"['/topic', topic.id]\">\n      <span class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\">\n        {{topic.category}}\n      </span>\n      <strong class=\"title\"> {{topic.name}}</strong>\n    </a>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -438,7 +424,7 @@ module.exports = "nav a {\n  justify-content: flex-start;\n  padding: 5px 10px;;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"nav-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" *ngIf=\"autherized\" [routerLink]=\"['/newproblem']\">Add New topic</a>\n        </li>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <form class=\"form-inline my-2 my-lg-0\">\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n              <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n            </form>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\">Logout</a>\n          </li>\n        </ul>\n        </div>\n    </div>\n  </nav>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"nav-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" *ngIf=\"autherized\" [routerLink]=\"['/new_topic']\">Add New topic</a>\n        </li>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <form class=\"form-inline my-2 my-lg-0\">\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n              <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n            </form>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li>\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\" [routerLink]=\"['/home']\">Logout</a>\n            </li>\n        </ul>\n        </div>\n    </div>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -482,7 +468,7 @@ var NavBarComponent = /** @class */ (function () {
     }
     NavBarComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.autherized = this.auth.isUserAuthenticated();
+        //this.autherized = this.auth.isUserAuthenticated();
         this.user = this.auth.getEmail();
         this.subscription = this.searchBox
             .valueChanges
@@ -490,9 +476,15 @@ var NavBarComponent = /** @class */ (function () {
             .subscribe(function (term) {
             _this.input.changeInput(term);
         });
+        var subscription = this.auth.isUserAuthenticated()
+            .subscribe((function (res) {
+            _this.autherized = res;
+        }));
+        this.subscription.add(subscription);
+        // setInterval(() => console.log(this.autherized), 2000);
+        // setInterval(() => console.log(this.auth.isUserAuthenticated()), 2000);
     };
     NavBarComponent.prototype.ngOnDestroy = function () {
-        console.log(this.autherized);
         this.subscription.unsubscribe();
     };
     NavBarComponent.prototype.searchProblem = function () {
@@ -567,7 +559,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var DEFAULT_PROBLEM = {
+var DEFAULT_TOPIC = {
     id: 0,
     name: '',
     desc: '',
@@ -578,18 +570,17 @@ var NewTopicComponent = /** @class */ (function () {
     function NewTopicComponent(dataService, auth) {
         this.dataService = dataService;
         this.auth = auth;
-        this.newTopic = Object.assign({}, DEFAULT_PROBLEM);
+        this.newTopic = Object.assign({}, DEFAULT_TOPIC);
         this.categories = ['tv', 'life', 'study', 'globalization'];
     }
-    // problems = this.dataService.getProblems();
     NewTopicComponent.prototype.ngOnInit = function () {
         this.newTopic.author = this.auth.getEmail();
     };
     NewTopicComponent.prototype.addTopic = function () {
-        this.dataService.addProblem(this.newTopic);
+        this.dataService.addTopic(this.newTopic);
     };
     NewTopicComponent.prototype.resetForm = function () {
-        this.newTopic = Object.assign({}, DEFAULT_PROBLEM);
+        this.newTopic = Object.assign({}, DEFAULT_TOPIC);
     };
     NewTopicComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -625,7 +616,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    {{diagnostic}}\n    <form>\n      <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input type=\"text\" class=\"form-control\" id=\"email\"\n        required\n        [(ngModel)]=\"newUser.email\" name=\"email\">\n        <!-- <p *ngIf=\"errors['password']\">Email is not correct!</p> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"text\" class=\"form-control\" id=\"password\"\n        required\n        [(ngModel)]=\"newUser.password\" name=\"password\">\n      </div>\n      <div class=\"form-group\">\n          <label for=\"password\">Confirm Password</label>\n          <input type=\"text\" class=\"form-control\" id=\"password\"\n          required\n          [(ngModel)]=\"newUser.comfirmedPassword\" name=\"password\">\n        </div>\n      <button type=\"submit\" class=\"btn btn-success\" (click)=\"registerUser()\">Submit</button>\n      <div class=\"form-group\"> Already a member?<a [routerLink]=\"['/login']\">Login</a></div>\n    </form>\n  </div>"
+module.exports = "<div class=\"container\">\n    {{diagnostic}}\n    <form>\n      <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input type=\"text\" class=\"form-control\" id=\"email\"\n        required\n        [(ngModel)]=\"newUser.email\" name=\"email\">\n        <!-- <p *ngIf=\"errors['password']\">Email is not correct!</p> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"text\" class=\"form-control\" id=\"password\"\n        required\n        [(ngModel)]=\"newUser.password\" name=\"password\">\n      </div>\n      <div class=\"form-group\">\n          <label for=\"password\">Confirm Password</label>\n          <input type=\"text\" class=\"form-control\" id=\"password\"\n          required\n          [(ngModel)]=\"newUser.comfirmedPassword\" name=\"password\">\n        </div>\n      <button type=\"submit\" class=\"btn btn-success\" (click)=\"registerUser()\">Submit</button>\n      <div class=\"form-group\"> Already a member?<a [routerLink]=\"['/login']\">Login</a></div>\n      <a href=\"/auth/google\">Sign In with Google</a>\n    </form>\n  </div>"
 
 /***/ }),
 
@@ -674,7 +665,7 @@ var SignupComponent = /** @class */ (function () {
         if (password !== confirm_password) {
             return;
         }
-        var url = 'http://' + window.location.hostname + ':3001/auth/signup';
+        var url = 'http://' + window.location.hostname + ':3000/auth/signup';
         var request = new Request(url, {
             method: 'POST',
             headers: {
@@ -734,7 +725,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-sm-8 col-md-12\">\n    <div>\n      <h2>\n        {{ topic.id}}. {{topic.name}}\n      </h2>\n      <p>\n        {{topic.desc}}\n        {{topic.likes}}\n      </p>\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" *ngIf=\"author===topic.author\"[routerLink]=\"['/topicEditor', topic.id]\">Edit this problem</button>\n    </div>\n    <div class=\"hidden-xs clo-sm-12 col-md-8\"></div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-sm-8 col-md-12\">\n    <div>\n      <h2>\n        {{ topic.id}}. {{topic.name}}\n      </h2>\n      <p>\n        {{topic.desc}}\n        {{topic.likes}}\n      </p>\n      \n      <button class=\"btn btn-outline-success my-2 my-sm-0\" *ngIf=\"author===topic.author\"[routerLink]=\"['/topic_ditor', topic.id]\">Edit this problem</button>\n    </div>\n    <div class=\"hidden-xs clo-sm-12 col-md-8\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -869,7 +860,7 @@ var TopicEditorComponent = /** @class */ (function () {
     };
     TopicEditorComponent.prototype.updatetopic = function () {
         console.log(this.newTopic);
-        this.dataService.updateProblem(this.newTopic);
+        this.dataService.updateTopic(this.newTopic);
     };
     TopicEditorComponent.prototype.resetForm = function () {
         this.newTopic = Object.assign({}, DEFAULT_TOPIC);
@@ -897,7 +888,7 @@ var TopicEditorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}"
+module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.cate-life {\n  background-color: #42ebf4;\n}\n.cate-tv {\n  background-color: #42eb76;\n}\n.cate-globalization {\n  background-color: #f232e3;\n}\n.cate-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}"
 
 /***/ }),
 
@@ -908,7 +899,7 @@ module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"list-group\">\n    <a class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\" [routerLink]=\"['/topic', topic.id]\">\n      <span class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\">\n        {{topic.category}}\n      </span>\n      <strong class=\"title\"> {{topic.name}}</strong>\n    </a>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"list-group\">\n    <a class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\" [routerLink]=\"['/topic', topic.id]\">\n      <span class=\"{{'pull-left badge category cate-' + topic.category.toLocaleLowerCase()}}\">\n        {{topic.category}}\n      </span>\n      <strong class=\"title\"> {{topic.name}}</strong>\n    </a>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1026,6 +1017,7 @@ var SearchPipe = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1036,6 +1028,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AuthService = /** @class */ (function () {
     function AuthService() {
     }
@@ -1044,8 +1037,11 @@ var AuthService = /** @class */ (function () {
         localStorage.setItem('email', email);
     };
     AuthService.prototype.isUserAuthenticated = function () {
-        return localStorage.getItem('token') !== null;
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(localStorage.getItem('token') !== null);
     };
+    // isUserAuthenticated() {
+    //   return localStorage.getItem('token') !== null;
+    // }
     AuthService.prototype.deauthenticateUser = function () {
         localStorage.removeItem('token');
         localStorage.removeItem('email');
@@ -1059,7 +1055,17 @@ var AuthService = /** @class */ (function () {
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
-        }),
+        })
+        // getTopics(): Observable<Topic[]> {
+        //   this.httpClient.get('api/v1/problems')
+        //     .toPromise()
+        //     .then((res: any) => {
+        //       this._problemSource.next(res);
+        //     })
+        //     .catch(this.handleError);
+        //     return this._problemSource.asObservable();
+        // }
+        ,
         __metadata("design:paramtypes", [])
     ], AuthService);
     return AuthService;
@@ -1082,6 +1088,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1094,63 +1101,63 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var DataService = /** @class */ (function () {
-    function DataService(httpClient) {
+    function DataService(httpClient, auth) {
         this.httpClient = httpClient;
-        this._problemSource = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
+        this.auth = auth;
+        this._topicSource = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
     }
     DataService.prototype.getTopics = function () {
         var _this = this;
-        this.httpClient.get('api/v1/problems')
+        this.httpClient.get('api/v1/topics')
             .toPromise()
             .then(function (res) {
-            _this._problemSource.next(res);
+            _this._topicSource.next(res);
         })
             .catch(this.handleError);
-        return this._problemSource.asObservable();
+        return this._topicSource.asObservable();
     };
     DataService.prototype.getPopularTopics = function () {
         var _this = this;
         this.httpClient.get('api/v1/popularTopics')
             .toPromise()
             .then(function (res) {
-            _this._problemSource.next(res);
+            _this._topicSource.next(res);
         })
             .catch(this.handleError);
-        return this._problemSource.asObservable();
+        return this._topicSource.asObservable();
     };
     DataService.prototype.getTopic = function (id) {
-        return this.httpClient.get("api/v1/problems/" + id)
+        return this.httpClient.get("api/v1/topics/" + id)
             .toPromise()
             .then(function (res) { return res; })
             .catch(this.handleError);
     };
-    DataService.prototype.addProblem = function (problem) {
-        var _this = this;
+    DataService.prototype.addTopic = function (topic) {
         var options = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                'constent-type': 'application/json'
+                'constent-type': 'application/json',
+                'Authorization': 'bearer ' + this.auth.getToken()
             })
         };
-        return this.httpClient.post('api/v1/problems', problem, options)
+        return this.httpClient.post('editor/topics', topic, options)
             .toPromise()
             .then(function (res) {
-            _this.getTopics();
             return res;
         })
             .catch(this.handleError);
     };
-    DataService.prototype.updateProblem = function (problem) {
-        var _this = this;
+    DataService.prototype.updateTopic = function (topic) {
         var options = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                'constent-type': 'application/json'
+                'constent-type': 'application/json',
+                'Authorization': 'bearer ' + this.auth.getToken()
             })
         };
-        return this.httpClient.put('api/v1/problems', problem, options)
+        return this.httpClient.put('editor/topics', topic, options)
             .toPromise()
             .then(function (res) {
-            _this.getTopics();
             return res;
         })
             .catch(this.handleError);
@@ -1162,7 +1169,8 @@ var DataService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+            _services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
     ], DataService);
     return DataService;
 }());
