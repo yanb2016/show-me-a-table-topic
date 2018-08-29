@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="list-group">
+    <a class="list-group-item" *ngFor="let topic of (topics | search: searchTerm)" [routerLink]="['/topic', topic.id]">
+      <span class="{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}">
+        {{topic.category}}
+      </span>
+      <strong class="title"> {{topic.name}}</strong>
+    </a>
+  </div>
+</div>
