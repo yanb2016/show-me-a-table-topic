@@ -4,8 +4,9 @@ const problemSchema = mongoose.Schema ({
   id: Number,
   name: String,
   desc: String,
-  difficulty: String,
-  likes: Number
+  category: String,
+  likes: Number,
+  author: String
 });
 
 ProblemModel = mongoose.model('ProblemModel', problemSchema);
