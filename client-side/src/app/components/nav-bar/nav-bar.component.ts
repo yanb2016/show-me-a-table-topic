@@ -19,7 +19,6 @@ export class NavBarComponent implements OnInit {
               private router: Router,
               private auth: AuthService) { }
   ngOnInit() {
-    this.autherized = this.auth.isUserAuthenticated();
     this.user = this.auth.getEmail();
     this.subscription = this.searchBox
     .valueChanges
@@ -29,6 +28,15 @@ export class NavBarComponent implements OnInit {
         this.input.changeInput(term);
       }
     );
+    const subscription = this.auth.isUserAuthenticated()
+    .subscribe(
+      (res => {
+        this.autherized = res;
+      })
+    )
+    this.subscription.add(subscription);
+    // or simplely 
+    //this.autherized = this.auth.isUserAuthenticated();
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
