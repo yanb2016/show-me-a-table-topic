@@ -1,8 +1,8 @@
-.difficulty, button{
+.category, button{
   min-width: 100px;
   margin-right: 10px;
 }
-.badge.difficulty {
+.badge.category {
   padding: 0.6em;
   color: #fbfdfa;
   font-size: 12px;
@@ -10,16 +10,16 @@
 .title {
   font-size: 1.2em;
 }
-.diff-easy {
+.cate-life {
   background-color: #42ebf4;
 }
-.diff-medium {
+.cate-tv {
   background-color: #42eb76;
 }
-.diff-hard {
+.cate-globalization {
   background-color: #f232e3;
 }
-.diff-super {
+.cate-study {
   background-color: #f5dd3e;
 }
 .container {
