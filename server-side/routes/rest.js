@@ -7,7 +7,12 @@ router.get('/problems', function(req, res) {
   problemService.getProblems()
     .then(problems => res.json(problems));
 });
+router.get('/popularTopics', function(req, res) {
+  problemService.getPopularTopic()
+    .then(topics => res.json(topics));
+});
 router.get('/problems/:id', (req, res) => {
+  console.log('received!')
   const id = req.params.id;
   problemService.getProblem(+id)
     .then(problem => res.json(problem))
@@ -21,6 +26,8 @@ router.post('/problems', jsonParser, (req, res) => {
     })
 })
 router.put('/problems', jsonParser, (req, res) => {
+  console.log('request .body')
+  console.log(req.body);
   problemService.modifyProblem(req.body)
     .then(problem => {
       res.json(problem)
