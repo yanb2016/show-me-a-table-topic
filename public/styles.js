@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Yanbin/bittiger/BitTiger-CS503-1803/copy/oj-client/src/styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! /Users/Yanbin/bittiger/BitTiger-CS503-1803/copy/oj-client/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+__webpack_require__(/*! /Users/Yanbin/bittiger/show-me-a-table-topic/client-side/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /Users/Yanbin/bittiger/show-me-a-table-topic/client-side/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
 
 
 /***/ })
