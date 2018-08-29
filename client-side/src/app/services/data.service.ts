@@ -19,7 +19,16 @@ export class DataService {
       .catch(this.handleError);
       return this._problemSource.asObservable();
   }
-  getProblem(id: number): Promise<Topic> {
+  getPopularTopics(): Observable<Topic[]> {
+    this.httpClient.get('api/v1/popularTopics')
+      .toPromise()
+      .then((res: any) => {
+        this._problemSource.next(res);
+      })
+      .catch(this.handleError);
+      return this._problemSource.asObservable();
+  }
+  getTopic(id: number): Promise<Topic> {
     return this.httpClient.get(`api/v1/problems/${id}`)
       .toPromise()
       .then((res: any) => res)    
