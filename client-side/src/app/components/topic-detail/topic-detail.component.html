@@ -8,7 +8,7 @@
         {{topic.desc}}
         {{topic.likes}}
       </p>
-      
+        
       <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="author===topic.author"[routerLink]="['/topic_ditor', topic.id]">Edit this problem</button>
     </div>
     <div class="hidden-xs clo-sm-12 col-md-8"></div>

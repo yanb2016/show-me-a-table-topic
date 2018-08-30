@@ -381,7 +381,6 @@ var MostPopularTopicComponent = /** @class */ (function () {
     };
     MostPopularTopicComponent.prototype.getPopularTopics = function () {
         var _this = this;
-        //this.problems = this.dataService.getProblems();
         this.subscriptionTopic = this.dataService.getPopularTopics()
             .subscribe(function (Topics) { return _this.topics = Topics; });
     };
@@ -424,7 +423,7 @@ module.exports = "nav a {\n  justify-content: flex-start;\n  padding: 5px 10px;;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"nav-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" *ngIf=\"autherized\" [routerLink]=\"['/new_topic']\">Add New topic</a>\n        </li>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <form class=\"form-inline my-2 my-lg-0\">\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n              <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n            </form>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li>\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\" [routerLink]=\"['/home']\">Logout</a>\n            </li>\n        </ul>\n        </div>\n    </div>\n  </nav>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"nav-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" *ngIf=\"autherized\" [routerLink]=\"['/new_topic']\">Add New topic</a>\n        </li>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <form class=\"form-inline my-2 my-lg-0\">\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n              <!-- <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\"(click)=\"searchTopic()\">Search</button> -->\n            </form>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li>\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\" [routerLink]=\"['/home']\">Logout</a>\n            </li>\n        </ul>\n        </div>\n    </div>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -468,7 +467,6 @@ var NavBarComponent = /** @class */ (function () {
     }
     NavBarComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //this.autherized = this.auth.isUserAuthenticated();
         this.user = this.auth.getEmail();
         this.subscription = this.searchBox
             .valueChanges
@@ -481,15 +479,15 @@ var NavBarComponent = /** @class */ (function () {
             _this.autherized = res;
         }));
         this.subscription.add(subscription);
-        // setInterval(() => console.log(this.autherized), 2000);
-        // setInterval(() => console.log(this.auth.isUserAuthenticated()), 2000);
+        // or simplely 
+        //this.autherized = this.auth.isUserAuthenticated();
     };
     NavBarComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
     };
-    NavBarComponent.prototype.searchProblem = function () {
-        this.router.navigate(['/problems']);
-    };
+    // searchTopic(): void {
+    //   this.router.navigate(['/topics']);
+    // }
     NavBarComponent.prototype.logout = function () {
         this.autherized = !this.autherized;
         this.user = '';
@@ -530,7 +528,7 @@ module.exports = ".container {\n  margin-top: 10px;\n}\n#resetBtn {\n  margin-le
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <form #topicForm=\"ngForm\">\n    <div [hidden]=\"topicForm.submitted\">\n      <div class=\"form-group\">\n        <label for=\"topicName\">Name</label>\n        <input id=\"topicName\" name=\"topicName\" class=\"form-control\" required\n          minlength=\"4\" [(ngModel)]=\"newTopic.name\" #name=\"ngModel\"\n          placeholder=\"Input name here\">\n        <div *ngIf=\"name.invalid && (name.dirty || name.touched)\" class=\"alert alert-danger\">\n          <div *ngIf=\"name.errors.required\">\n            Name is required.\n          </div>\n          <div *ngIf=\"name.errors.minlength\">\n            Name must be at least 4 characters long.\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"topicDesc\">Topic description</label>\n        <textarea name = \"topicDesc\" id=\"topicDesc\" class=\"form-control\"\n          placeholder=\"Input topic description\" \n          [(ngModel)] = \"newTopic.desc\" rows=\"3\">\n        </textarea>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"topicCategory\">Category</label> \n          <select class=\"form-control\" id=\"topicCategory\" name=\"topicCategory\"\n          [(ngModel)] = \"newTopic.category\">\n            <option *ngFor = \"let category of categories\" [value] = \"category\">\n              {{category}}\n            </option>\n          </select>\n      </div>  \n      <button type=\"submit\" class=\"btn btn-default\" [disabled]=\"topicForm.invalid\" (click)=\"addTopic()\">Submit</button>\n      <button type=\"button\" class=\"btn btn-default\" (click)=\"resetForm()\">Reset</button>\n    </div>\n\n    <div class=\"submitted-message\" *ngIf=\"topicForm.submitted\">\n      <p>You've submitted your topic!</p>\n      <button [routerLink]=\"['/problems']\">Check list</button>\n    </div>\n  </form>\n</div>\n  "
+module.exports = "<div class=\"container\">\n  <form #topicForm=\"ngForm\">\n    <div [hidden]=\"topicForm.submitted\">\n      <div class=\"form-group\">\n        <label for=\"topicName\">Name</label>\n        <input id=\"topicName\" name=\"topicName\" class=\"form-control\" required\n          minlength=\"4\" [(ngModel)]=\"newTopic.name\" #name=\"ngModel\"\n          placeholder=\"Input name here\">\n        <div *ngIf=\"name.invalid && (name.dirty || name.touched)\" class=\"alert alert-danger\">\n          <div *ngIf=\"name.errors.required\">\n            Name is required.\n          </div>\n          <div *ngIf=\"name.errors.minlength\">\n            Name must be at least 4 characters long.\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"topicDesc\">Topic description</label>\n        <textarea name = \"topicDesc\" id=\"topicDesc\" class=\"form-control\"\n          placeholder=\"Input topic description\" \n          [(ngModel)] = \"newTopic.desc\" rows=\"3\">\n        </textarea>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"topicCategory\">Category</label> \n          <select class=\"form-control\" id=\"topicCategory\" name=\"topicCategory\"\n          [(ngModel)] = \"newTopic.category\">\n            <option *ngFor = \"let category of categories\" [value] = \"category\">\n              {{category}}\n            </option>\n          </select>\n      </div>  \n      <button type=\"submit\" class=\"btn btn-default\" [disabled]=\"topicForm.invalid\" (click)=\"addTopic()\">Submit</button>\n      <button type=\"button\" class=\"btn btn-default\" (click)=\"resetForm()\">Reset</button>\n    </div>\n\n    <div class=\"submitted-message\" *ngIf=\"topicForm.submitted\">\n      <p>You've submitted your topic!</p>\n      <button [routerLink]=\"['/topics']\">Check list</button>\n    </div>\n  </form>\n</div>\n  "
 
 /***/ }),
 
@@ -659,9 +657,6 @@ var SignupComponent = /** @class */ (function () {
         var email = this.newUser.email;
         var password = this.newUser.password;
         var confirm_password = this.newUser.comfirmedPassword;
-        console.log('email:', email);
-        console.log('password:', password);
-        console.log('confirm_password:', confirm_password);
         if (password !== confirm_password) {
             return;
         }
@@ -725,7 +720,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-sm-8 col-md-12\">\n    <div>\n      <h2>\n        {{ topic.id}}. {{topic.name}}\n      </h2>\n      <p>\n        {{topic.desc}}\n        {{topic.likes}}\n      </p>\n      \n      <button class=\"btn btn-outline-success my-2 my-sm-0\" *ngIf=\"author===topic.author\"[routerLink]=\"['/topic_ditor', topic.id]\">Edit this problem</button>\n    </div>\n    <div class=\"hidden-xs clo-sm-12 col-md-8\"></div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-sm-8 col-md-12\">\n    <div>\n      <h2>\n        {{ topic.id}}. {{topic.name}}\n      </h2>\n      <p>\n        {{topic.desc}}\n        {{topic.likes}}\n      </p>\n        \n      <button class=\"btn btn-outline-success my-2 my-sm-0\" *ngIf=\"author===topic.author\"[routerLink]=\"['/topic_ditor', topic.id]\">Edit this problem</button>\n    </div>\n    <div class=\"hidden-xs clo-sm-12 col-md-8\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -848,7 +843,6 @@ var TopicEditorComponent = /** @class */ (function () {
         this.newTopic = Object.assign({}, DEFAULT_TOPIC);
         this.categories = ['life', 'tv', 'globalization', 'study'];
     }
-    // problems = this.dataService.getProblems();
     TopicEditorComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
@@ -859,7 +853,6 @@ var TopicEditorComponent = /** @class */ (function () {
         });
     };
     TopicEditorComponent.prototype.updatetopic = function () {
-        console.log(this.newTopic);
         this.dataService.updateTopic(this.newTopic);
     };
     TopicEditorComponent.prototype.resetForm = function () {
@@ -943,7 +936,6 @@ var TopicListComponent = /** @class */ (function () {
     };
     TopicListComponent.prototype.getTopics = function () {
         var _this = this;
-        //this.problems = this.dataService.getProblems();
         this.subscriptionTopic = this.dataService.getTopics()
             .subscribe(function (topics) {
             _this.topics = topics;
@@ -1039,9 +1031,6 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.isUserAuthenticated = function () {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(localStorage.getItem('token') !== null);
     };
-    // isUserAuthenticated() {
-    //   return localStorage.getItem('token') !== null;
-    // }
     AuthService.prototype.deauthenticateUser = function () {
         localStorage.removeItem('token');
         localStorage.removeItem('email');
@@ -1055,17 +1044,7 @@ var AuthService = /** @class */ (function () {
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
-        })
-        // getTopics(): Observable<Topic[]> {
-        //   this.httpClient.get('api/v1/problems')
-        //     .toPromise()
-        //     .then((res: any) => {
-        //       this._problemSource.next(res);
-        //     })
-        //     .catch(this.handleError);
-        //     return this._problemSource.asObservable();
-        // }
-        ,
+        }),
         __metadata("design:paramtypes", [])
     ], AuthService);
     return AuthService;

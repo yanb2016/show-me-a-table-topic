@@ -1,0 +1,4 @@
+{
+  "mongoDbUri": "mongodb://topics:topic123@ds237832.mlab.com:37832/topics",
+  "jwtSecret": "a secret phrese"
+}

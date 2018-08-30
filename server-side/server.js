@@ -1,29 +1,32 @@
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const config = require('./config/config')
+require('./models/main.js').connect(config.mongoDbUri, { useNewUrlParser: true });
+const port = process.env.PORT || 3000 ;
 const path = require('path');
-var http = require('http');
-var socketIO = require('socket.io');
-var io = socketIO();
-var restRouter = require('./routes/rest');
-var auth =require('./routes/auth');
-var editorSocketService = require('./services/editorSocketService')(io);
-const app = express();  
+const passport = require('passport');
+const restRouter = require('./routes/rest');
+const editor = require('./routes/editor');
+const auth =require('./routes/auth');
+const app = express();
+const authChecker = require('./auth/auth_checker');
+
+//passport 
+app.use(bodyParser.json());
+app.use(passport.initialize());
+passport.use('local-signup', require('./auth/signup_local_strategy'));
+passport.use('local-login', require('./auth/login_local_strategy'));
+
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
-mongoose.connect('mongodb://user:user123@ds147030.mlab.com:47030/problems');
-const port = process.env.PORT || 3001;
-app.use('/api/v1', restRouter);
+
 app.use('/auth', auth);
-// If the url does not handled by router on the server side
-// then the server send index.html from the public folder
+app.use('/api/v1', restRouter);
+app.use('/editor', authChecker);
+app.use('/editor', editor);
 app.use((req, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, '../public')});
   })
-const server = http.createServer(app);
-io.attach(server);
-server.listen(port);
-server.on('listening', onListening);
-function onListening() {
-  console.log(`App is listening on ${port}`);
-}
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))

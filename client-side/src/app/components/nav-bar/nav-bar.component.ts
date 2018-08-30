@@ -42,9 +42,9 @@ export class NavBarComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  searchProblem(): void {
-    this.router.navigate(['/problems']);
-  }
+  // searchTopic(): void {
+  //   this.router.navigate(['/topics']);
+  // }
   logout() {
     this.autherized = !this.autherized;
     this.user = '';

@@ -28,7 +28,6 @@ export class MostPopularTopicComponent implements OnInit {
   }
 
   getPopularTopics() {
-    //this.problems = this.dataService.getProblems();
     this.subscriptionTopic = this.dataService.getPopularTopics()
       .subscribe(Topics => this.topics = Topics);
   }

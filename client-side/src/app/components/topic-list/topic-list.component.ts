@@ -29,7 +29,6 @@ export class TopicListComponent implements OnInit, OnDestroy {
   }
 
   getTopics() {
-    //this.problems = this.dataService.getProblems();
     this.subscriptionTopic = this.dataService.getTopics()
       .subscribe(topics => {
         this.topics = topics

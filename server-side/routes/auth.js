@@ -7,18 +7,17 @@ const jsonParser = bodyParser.json();
 
 
 router.post('/signup', jsonParser, (req, res, next) => {
+  
   const validationResult = validateSignupForm(req.body);
   if(!validationResult.success) {
-    console.log('validationResult failed');
     return res.status(400).json({
       success: false,
       message: validationResult.message,
       errors: validationResult.errors
     });
   }
-  return passport.authenticate('local.signup', (err) => {
+  return passport.authenticate('local-signup', (err) => {
     if(err) {
-      console.log('here' + err);
       if(err.name === 'MongoError' && err.code === 11000) {
         return res.status(409).json({
           success: false,
@@ -39,9 +38,7 @@ router.post('/signup', jsonParser, (req, res, next) => {
     });
   })(req, res, next)
 });
-
-router.post('./login', jsonParser, (req, res, next) => {
-  console.log(req.body);
+router.post('/login', jsonParser, (req, res, next) => {
   const validationResult = validateLoginForm(req.body);
   if(!validationResult.success) {
     return res.status(400).json({
@@ -70,10 +67,7 @@ router.post('./login', jsonParser, (req, res, next) => {
     });
   })(req, res, next);
 })
-
 function validateSignupForm(payload) {
-  // console.log(payload);
-  // console.log(payload.password.length);
   const errors = {};
   let isFormValid = true;
   let message = '';
@@ -96,11 +90,10 @@ function validateSignupForm(payload) {
 }
 
 function validateLoginForm(payload) {
-  console.log(payload);
   const errors = {};
   let isFormValid = true;
   let message = '';
-  if(!payload || typeof payload.email !== 'string' || paylaod.email.trim().length === 0) {
+  if(!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
     isFormValid = false;
     errors.email = 'Please provide your email address';
   }

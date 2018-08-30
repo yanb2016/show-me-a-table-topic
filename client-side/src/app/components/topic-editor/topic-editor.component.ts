@@ -21,7 +21,6 @@ export class TopicEditorComponent implements OnInit {
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute) { }
-  // problems = this.dataService.getProblems();
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.dataService.getTopic(+params['id'])
@@ -32,7 +31,6 @@ export class TopicEditorComponent implements OnInit {
   }
 
   updatetopic() {
-    console.log(this.newTopic);
     this.dataService.updateTopic(this.newTopic);
   }
   resetForm() {

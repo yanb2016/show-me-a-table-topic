@@ -14,22 +14,15 @@ export class SignupComponent implements OnInit {
     comfirmedPassword: ''
   }
   constructor(private router: Router) { }
-
   ngOnInit() {
   }
   registerUser() {
     const email = this.newUser.email;
     const password = this.newUser.password;
     const confirm_password = this.newUser.comfirmedPassword;
-
-    console.log('email:', email);
-    console.log('password:', password);
-    console.log('confirm_password:', confirm_password);
-
     if (password !== confirm_password) {
       return;
     }
-
     const url = 'http://' + window.location.hostname + ':3000/auth/signup';
     const request = new Request(
       url,
