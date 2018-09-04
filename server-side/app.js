@@ -1,16 +1,16 @@
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const config = require('./config/config')
-require('./models/main.js').connect(config.mongoDbUri, { useNewUrlParser: true });
-const port = process.env.PORT || 3000 ;
-const path = require('path');
-const passport = require('passport');
-const restRouter = require('./routes/rest');
-const editor = require('./routes/editor');
-const auth =require('./routes/auth');
-const app = express();
-const authChecker = require('./auth/auth_checker');
+var express = require('express');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+var config = require('./config/config')
+require('./models/main').connect(config.mongoDbUri, { useNewUrlParser: true });
+var port = process.env.PORT || 3000 ;
+var path = require('path');
+var passport = require('passport');
+var restRouter = require('./routes/rest');
+var editor = require('./routes/editor');
+var auth =require('./routes/auth');
+var app = express();
+var authChecker = require('./auth/auth_checker');
 
 //passport 
 app.use(bodyParser.json());

@@ -7,7 +7,7 @@ const jsonParser = bodyParser.json();
 
 
 router.post('/signup', jsonParser, (req, res, next) => {
-  
+  console.log('called signup route!')
   const validationResult = validateSignupForm(req.body);
   if(!validationResult.success) {
     return res.status(400).json({
@@ -26,7 +26,7 @@ router.post('/signup', jsonParser, (req, res, next) => {
             email: 'This email is already taken.'
           }
         })
-      }
+      }   
       return res.status(400).json({
         success: false,
         message: 'Could not process the form'

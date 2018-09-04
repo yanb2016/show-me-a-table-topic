@@ -5,7 +5,6 @@ const jsonParser = bodyParser.json();
 const topicService = require('../services/topicService');
 
 router.post('/topics', jsonParser, (req, res) => {
-  console.log(res);
   topicService.addTopic(req.body)
     .then(topic => {
       res.json(topic)

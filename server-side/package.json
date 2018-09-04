@@ -1,11 +1,11 @@
 {
-  "name": "oj-server",
+  "name": "show-me-a-topic",
   "version": "1.0.0",
-  "description": "onlinJudgeSystem server",
-  "main": "index.js",
+  "description": "table topic",
+  "main": "app.js",
   "scripts": {
     "test": "npm test",
-    "start": "nodemon server.js"
+    "start": "node app.js"
   },
   "author": "Yanbin",
   "license": "ISC",
@@ -22,7 +22,6 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
-    "semantic-ui": "^2.3.3",
     "validator": "^10.5.0"
   }
 }
