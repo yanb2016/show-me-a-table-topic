@@ -2,6 +2,9 @@
   min-width: 100px;
   margin-right: 10px;
 }
+a {
+  text-decoration: none;
+}
 .badge.category {
   padding: 0.6em;
   color: #fbfdfa;
