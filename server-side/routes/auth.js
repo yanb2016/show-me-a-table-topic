@@ -44,7 +44,6 @@ router.post('/signup', jsonParser, (req, res, next) => {
 //   /auth/twitter/callback
 
 router.get('/twitter', passport.authenticate('twitter-login'));
-
 // Twitter will redirect the user to this URL after approval.  Finish the
 // authentication process by attempting to obtain an access token.  If
 // access was granted, the user will be logged in.  Otherwise,
