@@ -29,8 +29,14 @@ export class DataService {
       .catch(this.handleError);
       return this._topicSource.asObservable();
   }
+  getSearchedTopics(category: string):  Promise<Topic[]> {
+     return this.httpClient.get(`api/v1/topics/${category}`)
+      .toPromise()
+      .then((res: any) => res)    
+      .catch(this.handleError);
+  }
   getTopic(id: number): Promise<Topic> {
-    return this.httpClient.get(`api/v1/topics/${id}`)
+    return this.httpClient.get(`api/v1/topic/${id}`)
       .toPromise()
       .then((res: any) => res)    
       .catch(this.handleError);
