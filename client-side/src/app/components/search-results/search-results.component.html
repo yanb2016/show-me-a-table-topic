@@ -1,0 +1,9 @@
+<div class="container">
+  <div> Filtered by <span class="{{'pull-left badge category cate-' + topics[0].category.toLocaleLowerCase()}}">{{topics[0].category }}</span><button (click)="goBack()">Clear</button></div>
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let topic of topics">
+      <strong class="title" > <a [routerLink]="['/topic', topic.id]">{{topic.name}}</a></strong>
+    </div>
+  </div>
+</div>
+
