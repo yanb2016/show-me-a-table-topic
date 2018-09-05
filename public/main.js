@@ -112,12 +112,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/signup/signup.component */ "./src/app/components/signup/signup.component.ts");
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
 /* harmony import */ var _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/most-popular-topic/most-popular-topic.component */ "./src/app/components/most-popular-topic/most-popular-topic.component.ts");
+/* harmony import */ var _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/search-results/search-results.component */ "./src/app/components/search-results/search-results.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -149,6 +151,7 @@ var AppModule = /** @class */ (function () {
                 _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_12__["SignupComponent"],
                 _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
                 _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_14__["MostPopularTopicComponent"],
+                _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_15__["SearchResultsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -186,6 +189,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/signup/signup.component */ "./src/app/components/signup/signup.component.ts");
 /* harmony import */ var _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/topic-editor/topic-editor.component */ "./src/app/components/topic-editor/topic-editor.component.ts");
 /* harmony import */ var _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components//most-popular-topic/most-popular-topic.component */ "./src/app/components/most-popular-topic/most-popular-topic.component.ts");
+/* harmony import */ var _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/search-results/search-results.component */ "./src/app/components/search-results/search-results.component.ts");
+
 
 
 
@@ -200,6 +205,7 @@ var routes = [
     { path: 'topics', component: _components_topic_list_topic_list_component__WEBPACK_IMPORTED_MODULE_1__["TopicListComponent"] },
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
     { path: 'signup', component: _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__["SignupComponent"] },
+    { path: 'topics/:category', component: _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_8__["SearchResultsComponent"] },
     { path: 'topic/:id', component: _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_2__["TopicDetailComponent"] },
     { path: 'topic_ditor/:id', component: _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_6__["TopicEditorComponent"] },
     { path: 'new_topic', component: _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_3__["NewTopicComponent"] },
@@ -228,7 +234,7 @@ module.exports = ".container {\n  margin: auto;\n\n}\n.login-panel {\n  margin: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"email\">Email</label>\n      <input type=\"text\" class=\"form-control\" id=\"email\"\n      required\n      [(ngModel)]=\"user.email\" name=\"email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"text\" class=\"form-control\" id=\"password\"\n      required\n      [(ngModel)]=\"user.password\" name=\"password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-success\" (click)=\"checkUser()\">Submit</button>\n    <div class=\"form-group\"> Not a member?<a [routerLink]=\"['/signup']\">Sign up</a></div>\n  </form>\n</div>"
+module.exports = "<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"email\">Email</label>\n      <input type=\"text\" class=\"form-control\" id=\"email\"\n      required\n      [(ngModel)]=\"user.email\" name=\"email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"text\" class=\"form-control\" id=\"password\"\n      required\n      [(ngModel)]=\"user.password\" name=\"password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-success\" (click)=\"checkUser()\">Submit</button>\n    <div class=\"form-group\"> Not a member?<a [routerLink]=\"['/signup']\">Sign up</a></div>\n    <!-- <a href=\"/auth/twitter\">Sign in with Twitter</a> -->\n  </form>\n</div>"
 
 /***/ }),
 
@@ -326,7 +332,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\nh2 {\n  color: saddlebrown;\n}"
+module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\na {\n  text-decoration: none;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\nh2 {\n  color: saddlebrown;\n}"
 
 /***/ }),
 
@@ -337,7 +343,7 @@ module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h2>Most popular topics</h2>\n  <div class=\"list-group\">\n    <a class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\" [routerLink]=\"['/topic', topic.id]\">\n      <span class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\">\n        {{topic.category}}\n      </span>\n      <strong class=\"title\"> {{topic.name}}</strong>\n    </a>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <h2>Most popular topics</h2>\n  <div class=\"list-group\">\n    <div class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\">\n      <div><strong class=\"title\"> <a [routerLink]=\"['/topic', topic.id]\">{{topic.name}}</a></strong></div>\n      <div><a title=\"Filter by category\" class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\" [routerLink]=\"['/topics', topic.category]\">\n        {{topic.category}}\n      </a></div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -423,7 +429,7 @@ module.exports = "nav a {\n  justify-content: flex-start;\n  padding: 5px 10px;;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"nav-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" *ngIf=\"autherized\" [routerLink]=\"['/new_topic']\">Add New topic</a>\n        </li>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <form class=\"form-inline my-2 my-lg-0\">\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n              <!-- <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\"(click)=\"searchTopic()\">Search</button> -->\n            </form>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li>\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\" [routerLink]=\"['/home']\">Logout</a>\n            </li>\n        </ul>\n        </div>\n    </div>\n  </nav>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"nav-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/new_topic']\">Add New topic</a>\n        </li>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <form class=\"form-inline my-2 my-lg-0\">\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n              <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\"(click)=\"searchTopic()\">Search</button>\n            </form>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li>\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\" [routerLink]=\"['/home']\">Logout</a>\n            </li>\n        </ul>\n        </div>\n    </div>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -474,6 +480,7 @@ var NavBarComponent = /** @class */ (function () {
             .subscribe(function (term) {
             _this.input.changeInput(term);
         });
+        // add child subscription practice
         var subscription = this.auth.isUserAuthenticated()
             .subscribe((function (res) {
             _this.autherized = res;
@@ -485,9 +492,9 @@ var NavBarComponent = /** @class */ (function () {
     NavBarComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
     };
-    // searchTopic(): void {
-    //   this.router.navigate(['/topics']);
-    // }
+    NavBarComponent.prototype.searchTopic = function () {
+        this.router.navigate(['/topics']);
+    };
     NavBarComponent.prototype.logout = function () {
         this.autherized = !this.autherized;
         this.user = '';
@@ -562,7 +569,8 @@ var DEFAULT_TOPIC = {
     name: '',
     desc: '',
     likes: 0,
-    author: ''
+    author: '',
+    category: ''
 };
 var NewTopicComponent = /** @class */ (function () {
     function NewTopicComponent(dataService, auth) {
@@ -596,6 +604,88 @@ var NewTopicComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/search-results/search-results.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/components/search-results/search-results.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".category, button{\n    min-width: 100px;\n    margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.cate-life {\n  background-color: #42ebf4;\n}\n.cate-tv {\n  background-color: #42eb76;\n}\n.cate-globalization {\n  background-color: #f232e3;\n}\n.cate-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\n  "
+
+/***/ }),
+
+/***/ "./src/app/components/search-results/search-results.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/search-results/search-results.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div> Filtered by <span class=\"{{'pull-left badge category cate-' + topics[0].category.toLocaleLowerCase()}}\">{{topics[0].category }}</span><button (click)=\"goBack()\">Clear</button></div>\n  <div class=\"list-group\">\n    <div class=\"list-group-item\" *ngFor=\"let topic of topics\">\n      <strong class=\"title\" > <a [routerLink]=\"['/topic', topic.id]\">{{topic.name}}</a></strong>\n    </div>\n  </div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/components/search-results/search-results.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/search-results/search-results.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: SearchResultsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchResultsComponent", function() { return SearchResultsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SearchResultsComponent = /** @class */ (function () {
+    function SearchResultsComponent(dataService, location, route) {
+        this.dataService = dataService;
+        this.location = location;
+        this.route = route;
+    }
+    SearchResultsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            _this.dataService.getSearchedTopics(params['category'])
+                .then(function (topics) { return _this.topics = topics; });
+        });
+    };
+    SearchResultsComponent.prototype.goBack = function () {
+        this.location.back();
+    };
+    SearchResultsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-search-results',
+            template: __webpack_require__(/*! ./search-results.component.html */ "./src/app/components/search-results/search-results.component.html"),
+            styles: [__webpack_require__(/*! ./search-results.component.css */ "./src/app/components/search-results/search-results.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+    ], SearchResultsComponent);
+    return SearchResultsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/signup/signup.component.css":
 /*!********************************************************!*\
   !*** ./src/app/components/signup/signup.component.css ***!
@@ -614,7 +704,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    {{diagnostic}}\n    <form>\n      <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input type=\"text\" class=\"form-control\" id=\"email\"\n        required\n        [(ngModel)]=\"newUser.email\" name=\"email\">\n        <!-- <p *ngIf=\"errors['password']\">Email is not correct!</p> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"text\" class=\"form-control\" id=\"password\"\n        required\n        [(ngModel)]=\"newUser.password\" name=\"password\">\n      </div>\n      <div class=\"form-group\">\n          <label for=\"password\">Confirm Password</label>\n          <input type=\"text\" class=\"form-control\" id=\"password\"\n          required\n          [(ngModel)]=\"newUser.comfirmedPassword\" name=\"password\">\n        </div>\n      <button type=\"submit\" class=\"btn btn-success\" (click)=\"registerUser()\">Submit</button>\n      <div class=\"form-group\"> Already a member?<a [routerLink]=\"['/login']\">Login</a></div>\n      <a href=\"/auth/google\">Sign In with Google</a>\n    </form>\n  </div>"
+module.exports = "<div class=\"container\">\n    {{diagnostic}}\n    <form>\n      <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input type=\"text\" class=\"form-control\" id=\"email\"\n        required\n        [(ngModel)]=\"newUser.email\" name=\"email\">\n        <!-- <p *ngIf=\"errors['password']\">Email is not correct!</p> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"text\" class=\"form-control\" id=\"password\"\n        required\n        [(ngModel)]=\"newUser.password\" name=\"password\">\n      </div>\n      <div class=\"form-group\">\n          <label for=\"password\">Confirm Password</label>\n          <input type=\"text\" class=\"form-control\" id=\"password\"\n          required\n          [(ngModel)]=\"newUser.comfirmedPassword\" name=\"password\">\n        </div>\n      <button type=\"submit\" class=\"btn btn-success\" (click)=\"registerUser()\">Submit</button>\n      <div class=\"form-group\"> Already a member?<a [routerLink]=\"['/login']\">Login</a></div>\n      <!-- <a href=\"/auth/google\">Sign In with Google</a> -->\n    </form>\n  </div>"
 
 /***/ }),
 
@@ -720,7 +810,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-sm-8 col-md-12\">\n    <div>\n      <h2>\n        {{ topic.id}}. {{topic.name}}\n      </h2>\n      <p>\n        {{topic.desc}}\n        {{topic.likes}}\n      </p>\n        \n      <button class=\"btn btn-outline-success my-2 my-sm-0\" *ngIf=\"author===topic.author\"[routerLink]=\"['/topic_ditor', topic.id]\">Edit this problem</button>\n    </div>\n    <div class=\"hidden-xs clo-sm-12 col-md-8\"></div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-sm-8 col-md-12\">\n    <div>\n      <h2>\n        {{ topic.id}}. {{topic.name}}\n      </h2>\n      <p>\n        {{topic.desc}}\n        {{topic.likes}}\n      </p>   \n      <button class=\"btn btn-outline-success my-2 my-sm-0\" *ngIf=\"author===topic.author\"[routerLink]=\"['/topic_ditor', topic.id]\">Edit this problem</button>\n      <button (click)=\"goBack()\">Go Back</button>\n    </div>\n    <div class=\"hidden-xs clo-sm-12 col-md-8\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -738,6 +828,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -751,10 +842,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var TopicDetailComponent = /** @class */ (function () {
-    function TopicDetailComponent(dataService, route, auth) {
+    function TopicDetailComponent(dataService, route, location, auth) {
         this.dataService = dataService;
         this.route = route;
+        this.location = location;
         this.auth = auth;
     }
     TopicDetailComponent.prototype.ngOnInit = function () {
@@ -765,6 +858,9 @@ var TopicDetailComponent = /** @class */ (function () {
         });
         this.author = this.auth.getEmail();
     };
+    TopicDetailComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     TopicDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-topic-detail',
@@ -773,6 +869,7 @@ var TopicDetailComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_services_data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"],
             _services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
     ], TopicDetailComponent);
     return TopicDetailComponent;
@@ -834,7 +931,8 @@ var DEFAULT_TOPIC = {
     name: '',
     desc: '',
     likes: 0,
-    author: ''
+    author: '',
+    category: ''
 };
 var TopicEditorComponent = /** @class */ (function () {
     function TopicEditorComponent(dataService, route) {
@@ -881,7 +979,7 @@ var TopicEditorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.cate-life {\n  background-color: #42ebf4;\n}\n.cate-tv {\n  background-color: #42eb76;\n}\n.cate-globalization {\n  background-color: #f232e3;\n}\n.cate-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}"
+module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\n"
 
 /***/ }),
 
@@ -892,7 +990,7 @@ module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"list-group\">\n    <a class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\" [routerLink]=\"['/topic', topic.id]\">\n      <span class=\"{{'pull-left badge category cate-' + topic.category.toLocaleLowerCase()}}\">\n        {{topic.category}}\n      </span>\n      <strong class=\"title\"> {{topic.name}}</strong>\n    </a>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <!-- <h2>Most popular topics</h2> -->\n  <div class=\"list-group\">\n    <div class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\">\n      <a title=\"Filter by category\" class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\" [routerLink]=\"['/topics', topic.category]\">\n        {{topic.category}}\n      </a>\n      <strong class=\"title\"> <a [routerLink]=\"['/topic', topic.id]\">{{topic.name}}</a></strong>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1107,8 +1205,14 @@ var DataService = /** @class */ (function () {
             .catch(this.handleError);
         return this._topicSource.asObservable();
     };
+    DataService.prototype.getSearchedTopics = function (category) {
+        return this.httpClient.get("api/v1/topics/" + category)
+            .toPromise()
+            .then(function (res) { return res; })
+            .catch(this.handleError);
+    };
     DataService.prototype.getTopic = function (id) {
-        return this.httpClient.get("api/v1/topics/" + id)
+        return this.httpClient.get("api/v1/topic/" + id)
             .toPromise()
             .then(function (res) { return res; })
             .catch(this.handleError);
@@ -1264,7 +1368,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Yanbin/bittiger/show-me-a-table-topic/client-side/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/yanbinjin/coding/full-stack-projects/show-me-a-table-topic/client-side/src/main.ts */"./src/main.ts");
 
 
 /***/ })

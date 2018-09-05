@@ -5473,7 +5473,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Yanbin/bittiger/show-me-a-table-topic/client-side/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/yanbinjin/coding/full-stack-projects/show-me-a-table-topic/client-side/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
