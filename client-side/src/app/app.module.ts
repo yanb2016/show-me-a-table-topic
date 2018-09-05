@@ -13,6 +13,8 @@ import { TopicEditorComponent } from './components/topic-editor/topic-editor.com
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { MostPopularTopicComponent } from './components/most-popular-topic/most-popular-topic.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { MostPopularTopicComponent } from './components/most-popular-topic/most-
     SignupComponent,
     LoginComponent,
     MostPopularTopicComponent,
+    SearchResultsComponent
 
   ],
   imports: [
