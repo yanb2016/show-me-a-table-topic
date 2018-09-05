@@ -1,10 +1,11 @@
 <div class="container">
+  <!-- <h2>Most popular topics</h2> -->
   <div class="list-group">
-    <a class="list-group-item" *ngFor="let topic of (topics | search: searchTerm)" [routerLink]="['/topic', topic.id]">
-      <span class="{{'pull-left badge category cate-' + topic.category.toLocaleLowerCase()}}">
+    <div class="list-group-item" *ngFor="let topic of (topics | search: searchTerm)">
+      <a title="Filter by category" class="{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}" [routerLink]="['/topics', topic.category]">
         {{topic.category}}
-      </span>
-      <strong class="title"> {{topic.name}}</strong>
-    </a>
+      </a>
+      <strong class="title"> <a [routerLink]="['/topic', topic.id]">{{topic.name}}</a></strong>
+    </div>
   </div>
 </div>

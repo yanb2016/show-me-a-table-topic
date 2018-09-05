@@ -21,10 +21,7 @@ export class LoginComponent implements OnInit {
   checkUser() {
     const email = this.user.email;
     const password = this.user.password;
-    const url = 'http://' + window.location.hostname + ':3000/auth/login';
-    const request = new Request(
-      url,
-      {
+    const request = {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -35,8 +32,7 @@ export class LoginComponent implements OnInit {
           password: password
         })
       }
-    )
-    fetch(request).then(response => {
+    fetch('/auth/login', request).then(response => {
       if (response.status === 200) {
         this.errors = {};
         response.json().then(json => {
@@ -45,9 +41,7 @@ export class LoginComponent implements OnInit {
         location.reload();
         this.router.navigateByUrl('/'); 
       } else {
-        console.log('Login failed');
         response.json().then(json => {
-          console.log(json);
           this.errors = json.errors ? json.error: {};
           this.errors['summary'] = json.message;
         })

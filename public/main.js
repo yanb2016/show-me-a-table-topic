@@ -234,7 +234,7 @@ module.exports = ".container {\n  margin: auto;\n\n}\n.login-panel {\n  margin: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"email\">Email</label>\n      <input type=\"text\" class=\"form-control\" id=\"email\"\n      required\n      [(ngModel)]=\"user.email\" name=\"email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"text\" class=\"form-control\" id=\"password\"\n      required\n      [(ngModel)]=\"user.password\" name=\"password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-success\" (click)=\"checkUser()\">Submit</button>\n    <div class=\"form-group\"> Not a member?<a [routerLink]=\"['/signup']\">Sign up</a></div>\n    <!-- <a href=\"/auth/twitter\">Sign in with Twitter</a> -->\n  </form>\n</div>"
+module.exports = "<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"email\">Email</label>\n      <input type=\"text\" class=\"form-control\" id=\"email\"\n      required\n      [(ngModel)]=\"user.email\" name=\"email\">\n      <p *ngIf=\"errors\">{{errors.summary}}</p>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"text\" class=\"form-control\" id=\"password\"\n      required\n      [(ngModel)]=\"user.password\" name=\"password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-success\" (click)=\"checkUser()\">Submit</button>\n    <div class=\"form-group\"> Not a member?<a [routerLink]=\"['/signup']\">Sign up</a></div>\n    <!-- <a href=\"/auth/twitter\">Sign in with Twitter</a> -->\n  </form>\n</div>"
 
 /***/ }),
 
@@ -278,8 +278,7 @@ var LoginComponent = /** @class */ (function () {
         var _this = this;
         var email = this.user.email;
         var password = this.user.password;
-        var url = 'http://' + window.location.hostname + ':3000/auth/login';
-        var request = new Request(url, {
+        var request = {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -289,8 +288,8 @@ var LoginComponent = /** @class */ (function () {
                 email: email,
                 password: password
             })
-        });
-        fetch(request).then(function (response) {
+        };
+        fetch('/auth/login', request).then(function (response) {
             if (response.status === 200) {
                 _this.errors = {};
                 response.json().then(function (json) {
@@ -300,9 +299,7 @@ var LoginComponent = /** @class */ (function () {
                 _this.router.navigateByUrl('/');
             }
             else {
-                console.log('Login failed');
                 response.json().then(function (json) {
-                    console.log(json);
                     _this.errors = json.errors ? json.error : {};
                     _this.errors['summary'] = json.message;
                 });
@@ -750,8 +747,7 @@ var SignupComponent = /** @class */ (function () {
         if (password !== confirm_password) {
             return;
         }
-        var url = 'http://' + window.location.hostname + ':3000/auth/signup';
-        var request = new Request(url, {
+        var options = {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -761,18 +757,16 @@ var SignupComponent = /** @class */ (function () {
                 email: email,
                 password: password
             })
-        });
-        fetch(request).then(function (response) {
+        };
+        fetch('auth/signup', options).then(function (response) {
             if (response.status === 200) {
                 _this.errors = {};
                 _this.router.navigateByUrl('/login');
             }
             else {
                 response.json().then(function (json) {
-                    //console.log(json);
                     _this.errors = json.errors ? json.errors : {};
                     _this.errors['summary'] = json.message;
-                    console.log(_this.errors);
                 });
             }
         });

@@ -23,9 +23,7 @@ export class SignupComponent implements OnInit {
     if (password !== confirm_password) {
       return;
     }
-    const url = 'http://' + window.location.hostname + ':3000/auth/signup';
-    const request = new Request(
-      url,
+    const options = 
       {
         method: 'POST',
         headers: {
@@ -37,17 +35,15 @@ export class SignupComponent implements OnInit {
           password: password
         })
       }
-    )
-    fetch(request).then(response => {
+    
+    fetch('auth/signup', options).then(response => {
       if(response.status === 200) {    
         this.errors = {}  
         this.router.navigateByUrl('/login');
       } else {
         response.json().then(json => {
-          //console.log(json);
           this.errors = json.errors ? json.errors : {};
           this.errors['summary'] = json.message;
-          console.log(this.errors);
         })
       }
     })

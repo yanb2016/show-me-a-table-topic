@@ -28,6 +28,7 @@ export class NavBarComponent implements OnInit {
         this.input.changeInput(term);
       }
     );
+    // add child subscription practice
     const subscription = this.auth.isUserAuthenticated()
     .subscribe(
       (res => {
@@ -42,9 +43,9 @@ export class NavBarComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  // searchTopic(): void {
-  //   this.router.navigate(['/topics']);
-  // }
+  searchTopic(): void {
+    this.router.navigate(['/topics']);
+  }
   logout() {
     this.autherized = !this.autherized;
     this.user = '';

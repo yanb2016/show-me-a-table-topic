@@ -4,4 +4,5 @@ export class Topic {
   desc: string;
   likes:number;
   author:string;
+  category:string;
 }

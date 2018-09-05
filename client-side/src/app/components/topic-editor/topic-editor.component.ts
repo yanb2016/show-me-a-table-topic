@@ -7,7 +7,8 @@ const DEFAULT_TOPIC = {
   name: '',
   desc: '',
   likes:0,
-  author:''
+  author:'',
+  category:''
 }
 @Component({
   selector: 'app-topic-editor',
