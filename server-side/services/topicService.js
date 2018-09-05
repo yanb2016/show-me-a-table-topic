@@ -38,6 +38,18 @@ const getTopic =  (id) => {
   })
 };
 
+const getSearchedTopics =  (category) => {
+  return new Promise ((resolve, reject) => {
+    TopicModel.find({category: category}, (err, topics) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(topics);
+      }
+    })
+  })
+};
+
 const addTopic = (newTopic) => {
   return new Promise ((resolve, reject) => {
     TopicModel.findOne({name: newTopic.name}, (err, topic) => {
@@ -73,5 +85,6 @@ module.exports = {
   getTopic,
   addTopic,
   modifyTopic,
-  getPopularTopic
+  getPopularTopic,
+  getSearchedTopics
 }

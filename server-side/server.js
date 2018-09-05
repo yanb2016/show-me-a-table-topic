@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 passport.use('local-signup', require('./auth/signup_local_strategy'));
 passport.use('local-login', require('./auth/login_local_strategy'));
+passport.use('twitter-login', require('./auth/login_twitter_strategy'));
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
