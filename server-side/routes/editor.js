@@ -5,11 +5,12 @@ const jsonParser = bodyParser.json();
 const topicService = require('../services/topicService');
 
 router.post('/topics', jsonParser, (req, res) => {
+
   topicService.addTopic(req.body)
-    .then(topic => {
-      res.json(topic)
+    .then(message => {
+      res.json(message)
     }, (error) => {
-      res.status(400).send("topic is existing!")
+      res.status(400).send("Not saved! Topic already existing!")
     })
 })
 
