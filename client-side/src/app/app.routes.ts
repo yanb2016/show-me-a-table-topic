@@ -7,9 +7,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { TopicEditorComponent } from './components/topic-editor/topic-editor.component'
 import { MostPopularTopicComponent } from './components//most-popular-topic/most-popular-topic.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { IdeasComponent } from './ideas/ideas.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: MostPopularTopicComponent },
+  { path: 'ideas', component: IdeasComponent },
   { path: 'topics', component:TopicListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
