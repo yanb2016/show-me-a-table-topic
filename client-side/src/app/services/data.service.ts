@@ -41,6 +41,12 @@ export class DataService {
       .then((res: any) => res)    
       .catch(this.handleError);
   }
+  getIdeas(): Promise<[]> {
+    return this.httpClient.get('api/v1/ideas')
+    .toPromise()
+    .then((res: any) => res);
+  }
+
   addTopic(topic: Topic) {
     const options = {
       headers: new HttpHeaders({
