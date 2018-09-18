@@ -17,8 +17,10 @@ const DEFAULT_TOPIC = {
   styleUrls: ['./new-topic.component.css']
 })
 export class NewTopicComponent implements OnInit {
+  message: any;
+  errMsg: any;
   newTopic: Topic = Object.assign({},DEFAULT_TOPIC);
-  categories: string[] = ['tv', 'life', 'study', 'globalization']
+  categories: string[] = ['sport', 'life', 'study', 'pets', 'travel', 'music']
   constructor(private dataService: DataService,
               private auth: AuthService) { }
   ngOnInit() {
@@ -26,7 +28,14 @@ export class NewTopicComponent implements OnInit {
   }
 
   addTopic() {
-    this.dataService.addTopic(this.newTopic);
+    this.dataService.addTopic(this.newTopic)
+    .then(res=> {
+      this.message = res;
+    })
+    .catch(error=> {
+      this.errMsg = error.error;
+    })
+
   }
   resetForm() {
     this.newTopic = Object.assign({},DEFAULT_TOPIC)
