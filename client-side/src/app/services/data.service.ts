@@ -45,7 +45,7 @@ export class DataService {
     const options = {
       headers: new HttpHeaders({
         'constent-type': 'application/json',
-        'Authorization': 'bearer ' + this.auth.getToken()
+        // 'Authorization': 'bearer ' + this.auth.getToken()
       })
     };
     return this.httpClient.post('editor/topics', topic, options)
