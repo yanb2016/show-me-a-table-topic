@@ -3,6 +3,8 @@ import { Topic } from '../models/topic.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,13 +13,15 @@ export class DataService {
   constructor(private httpClient: HttpClient,
               private auth: AuthService) { }
 
-  getTopics(): Observable<Topic[]> {
-    this.httpClient.get('api/v1/topics')
+  getTopics(pageNumber:number): Observable<Topic[]> {
+    this.httpClient.get(`api/v1/topics/pagenumber/${pageNumber}`)
       .toPromise()
       .then((res: any) => {
         this._topicSource.next(res);
       })
-      .catch(this.handleError);
+      .catch(e => {
+        this.handleError(e)
+      });
       return this._topicSource.asObservable();
   }
   getPopularTopics(): Observable<Topic[]> {
@@ -41,7 +45,7 @@ export class DataService {
       .then((res: any) => res)    
       .catch(this.handleError);
   }
-  getIdeas(): Promise<[]> {
+  getIdeas(): Promise<any> {
     return this.httpClient.get('api/v1/ideas')
     .toPromise()
     .then((res: any) => res);
@@ -61,14 +65,14 @@ export class DataService {
     })
     .catch(this.handleError);
   }
-  updateTopic(topic: Topic) {
+  updateTopic(id: number) {
     const options = {
       headers: new HttpHeaders({
         'constent-type': 'application/json',
-        'Authorization': 'bearer ' + this.auth.getToken()
+        // 'Authorization': 'bearer ' + this.auth.getToken()
       })
     };
-    return this.httpClient.put('editor/topics', topic, options)
+    return this.httpClient.put(`editor/topics/${id}`, options)
     .toPromise()
     .then((res: any) => {
       return res;
@@ -76,6 +80,6 @@ export class DataService {
     .catch(this.handleError);
   }
   private handleError(err: any): Promise<any> {
-    return Promise.reject(err.body || err);
+    return Promise.reject(err.error || err);
   }
 }
