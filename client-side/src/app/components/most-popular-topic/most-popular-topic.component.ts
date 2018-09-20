@@ -38,4 +38,8 @@ export class MostPopularTopicComponent implements OnInit {
                                   inputTerm => this.searchTerm = inputTerm
                                 );
   }
+  handleLikes(e) {
+
+    this.dataService.updateTopic(e);
+  }
 }
