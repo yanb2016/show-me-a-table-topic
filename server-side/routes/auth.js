@@ -7,8 +7,8 @@ const jsonParser = bodyParser.json();
 
 
 router.post('/signup', jsonParser, (req, res, next) => {
-  console.log('called signup route!')
   const validationResult = validateSignupForm(req.body);
+  console.log(validationResult);
   if(!validationResult.success) {
     return res.status(400).json({
       success: false,
