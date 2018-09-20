@@ -1,17 +1,37 @@
 const TopicModel = require('../models/topicModel');
+const IdeaModel = require('../models/ideaModel');
 
-const getTopics = () => {
+const getTopics = (pageNumber) => {
   return new Promise ((resolve, reject) => {
-    TopicModel.find((err, topics) => {
-      if (err) {
-        reject('err!');
+    TopicModel.find({})
+    .sort({id: 1})
+    .skip(pageNumber*10)
+    .limit(10)
+    .exec(function(err, topics) {
+      if(err) {
+        reject(err)
       } else {
-        resolve(topics);
+        if(topics.length === 0) {
+          reject('No more topics')
+        } else {
+          resolve(topics)
+        }
       }
     })
   })
 };
 
+const getIdeas = () => {
+  return new Promise ((resolve, reject) => {
+    IdeaModel.find((err, ideas) => {
+      if(err) {
+        reject(err);
+      } else {
+        resolve(ideas);
+      }
+    })
+  })
+}
 const getPopularTopic = () => {
   return new Promise ((resolve, reject) => {
     TopicModel.find((err, topics) => {
@@ -21,7 +41,7 @@ const getPopularTopic = () => {
         resolve(topics);
       }
     })
-    .limit(8)
+    .limit(5)
     .sort({likes: -1})
   })
 };
@@ -36,7 +56,8 @@ const getTopic =  (id) => {
       }
     })
   })
-};
+};         
+
 
 const getSearchedTopics =  (category) => {
   return new Promise ((resolve, reject) => {
@@ -60,17 +81,21 @@ const addTopic = (newTopic) => {
           newTopic.id = count + 1;
           const mongoTopic = new TopicModel(newTopic);
           mongoTopic.save();
-          resolve(newTopic);
+          resolve("Topic saved successfully");
         })
       }
     })
   })
 }
-const modifyTopic = (newTopic) => {
+
+const handleLikes = (id) => {
   return new Promise ((resolve, reject) => {
-    TopicModel.findOneAndUpdate({name: newTopic.name}, {$set: {desc: newTopic.desc, category: newTopic.category}}, {new: true}, function(err, res) {
+    // if thousands of people like this topic at the same time, this would be working then. 
+    // I should get the likes from database and then add new likes to it.
+    // or I can save the new likes as caches using redis, and then update later.
+    // or set the condition, updata to database if the likes reaches a number
+    TopicModel.findOneAndUpdate({id: id}, {$inc: {likes: 1}}, {new: true}, function(err, res) {
       if(err) {
-        console.log(err);
         reject(err);
       } else {
         resolve(res);
@@ -84,7 +109,8 @@ module.exports = {
   getTopics,
   getTopic,
   addTopic,
-  modifyTopic,
+  handleLikes,
   getPopularTopic,
-  getSearchedTopics
+  getSearchedTopics,
+  getIdeas
 }
