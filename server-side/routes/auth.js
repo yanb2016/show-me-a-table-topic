@@ -8,7 +8,6 @@ const jsonParser = bodyParser.json();
 
 router.post('/signup', jsonParser, (req, res, next) => {
   const validationResult = validateSignupForm(req.body);
-  console.log(validationResult);
   if(!validationResult.success) {
     return res.status(400).json({
       success: false,
@@ -43,14 +42,14 @@ router.post('/signup', jsonParser, (req, res, next) => {
 // will redirect the user back to the application at
 //   /auth/twitter/callback
 
-router.get('/twitter', passport.authenticate('twitter-login'));
-// Twitter will redirect the user to this URL after approval.  Finish the
-// authentication process by attempting to obtain an access token.  If
-// access was granted, the user will be logged in.  Otherwise,
-// authentication has failed.
-router.get('/twitter/callback',
-  passport.authenticate('twitter-login', { successRedirect: '/',
-                                     failureRedirect: '/login' }));
+// router.get('/twitter', passport.authenticate('twitter-login'));
+// // Twitter will redirect the user to this URL after approval.  Finish the
+// // authentication process by attempting to obtain an access token.  If
+// // access was granted, the user will be logged in.  Otherwise,
+// // authentication has failed.
+// router.get('/twitter/callback',
+//   passport.authenticate('twitter-login', { successRedirect: '/',
+//                                      failureRedirect: '/login' }));
 
 router.post('/login', jsonParser, (req, res, next) => {
   const validationResult = validateLoginForm(req.body);
