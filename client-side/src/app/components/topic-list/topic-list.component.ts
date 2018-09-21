@@ -38,6 +38,9 @@ export class TopicListComponent implements OnInit {
    this.dataService.getTopics(this.pageNumber)
       .then(
         topics => {
+          if(topics.length < 10) {
+            this.msg = 'No More Topics';
+          }
         if(this.pageNumber === 0) {
           this.topics = topics;
         } else {

@@ -30,6 +30,9 @@ export class IdeasComponent implements OnInit {
    this.dataService.getIdeas(this.pageNumber)
       .then(
         ideas => {
+          if(ideas.length < 10) {
+            this.msg = 'No More Ideas';
+          }
         if(this.pageNumber === 0) {
           this.ideas = ideas;
         } else {
@@ -38,7 +41,7 @@ export class IdeasComponent implements OnInit {
         this.pageNumber += 1;
       })
       .catch(err =>{
-        this.msg = 'No More ideas';
+        this.msg = 'No More Ideas';
       })
   }
   loadMoreIdeas() {
