@@ -1,27 +1,35 @@
-.category, button{
-  min-width: 100px;
-  margin-right: 10px;
+a {
+  text-decoration: none;
 }
-.badge.category {
-  padding: 0.6em;
-  color: #fbfdfa;
-  font-size: 12px;
+.badge-secondary {
+  margin-left:16px;
 }
-.title {
-  font-size: 1.2em;
-}
-.diff-life {
-  background-color: #42ebf4;
-}
-.diff-tv {
-  background-color: #42eb76;
-}
-.diff-globalization {
-  background-color: #f232e3;
-}
-.diff-study {
-  background-color: #f5dd3e;
+.btn-link {
+  font-size: 1.1em;
+  color: #4688BC;
+  white-space: normal;
+  text-align: left;
 }
 .container {
+  margin-top: 15px;
+}
+
+h2 {
+  color: saddlebrown;
+}
+
+.btn-link {
+  text-decoration: none;
+}
+
+h5 {
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  margin-top: 5px;
+}
+.info {
+  text-align:center;
   margin-top: 10px;
 }

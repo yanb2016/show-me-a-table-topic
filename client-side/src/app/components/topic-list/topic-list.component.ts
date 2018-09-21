@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Topic } from '../../models/topic.model';
 import { DataService } from '../../services/data.service';
@@ -9,47 +9,53 @@ import * as _ from 'lodash';
   templateUrl: './topic-list.component.html',
   styleUrls: ['./topic-list.component.css']
 })
-export class TopicListComponent implements OnInit, OnDestroy {
+export class TopicListComponent implements OnInit {
   topics: Topic[];
   subscriptionTopic: Subscription;
-  private pageNumber: number = -1;
+  private pageNumber: number = 0;
   searchTerm: string = '';
   subscriptionInput: Subscription;
+  msg: string = '';
 
   constructor(private dataService: DataService,
               private inputService: InputService) { }
-
+  @HostListener('document:scroll', ['$event']) 
+  scroll() {
+    this.handleScroll();
+  }
   ngOnInit() {
     this.loadMoreTopics();
     this.getSearchTerm();
+    this.scroll = _.debounce(this.scroll, 1000);
   }
-
-  ngOnDestroy() {
-    this.subscriptionTopic.unsubscribe();
+  handleScroll() {
+    let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+    if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50 )) {
+      this.loadMoreTopics();
+    }
   }
-
-  getTopics(pageNumber){
-    this.subscriptionTopic = this.dataService.getTopics(pageNumber)
-      .subscribe(topics => {
-        console.log(topics)
+  getTopics(){
+   this.dataService.getTopics(this.pageNumber)
+      .then(
+        topics => {
         if(this.pageNumber === 0) {
           this.topics = topics;
         } else {
           this.topics = _.union(this.topics.concat(topics));
         }
-      }, error => {
-        console.log(error)
-      });
+        this.pageNumber += 1;
+      })
+      .catch(err =>{
+        this.msg = 'No More Topics';
+      })
   }
-
   getSearchTerm(): void {
     this.subscriptionInput = this.inputService.getInput()
-                                .subscribe(
-                                  inputTerm => this.searchTerm = inputTerm
-                                );
+      .subscribe(
+        inputTerm => this.searchTerm = inputTerm
+      );
   }
   loadMoreTopics() {
-    this.pageNumber += 1;
-    this.getTopics(this.pageNumber);
+    this.getTopics();
   }
 }
