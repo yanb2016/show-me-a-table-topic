@@ -3,13 +3,13 @@ const IdeaModel = require('../models/ideaModel');
 
 const getTopics = (pageNumber) => {
   return new Promise ((resolve, reject) => {
-    TopicModel.find({})
+    TopicModel.find()
     .sort({id: 1})
     .skip(pageNumber*10)
     .limit(10)
     .exec(function(err, topics) {
       if(err) {
-        reject(err)
+        reject(err);
       } else {
         if(topics.length === 0) {
           reject('No more topics')
@@ -21,13 +21,21 @@ const getTopics = (pageNumber) => {
   })
 };
 
-const getIdeas = () => {
+const getIdeas = (pageNumber) => {
   return new Promise ((resolve, reject) => {
-    IdeaModel.find((err, ideas) => {
+    IdeaModel.find()
+    .sort({idea: 1})
+    .skip(pageNumber * 10)
+    .limit(10)
+    .exec((err, ideas) => {
       if(err) {
         reject(err);
       } else {
-        resolve(ideas);
+        if(ideas.length === 0) {
+          reject('No more ideas')
+        } else {
+          resolve(ideas)
+        }
       }
     })
   })
@@ -41,31 +49,26 @@ const getPopularTopic = () => {
         resolve(topics);
       }
     })
-    .limit(5)
+    .limit(10)
     .sort({likes: -1})
   })
 };
-
-const getTopic =  (id) => {
+const getSearchedTopics =  (category, pageNumber) => {
   return new Promise ((resolve, reject) => {
-    TopicModel.findOne({id: id}, (err, topic) => {
+    TopicModel.find({category: category})
+    .sort({id: 1})
+    .skip(pageNumber*8)
+    .limit(8)
+    .exec((err, topics) => {
       if (err) {
+        console.log(err);
         reject(err)
       } else {
-        resolve(topic);
-      }
-    })
-  })
-};         
-
-
-const getSearchedTopics =  (category) => {
-  return new Promise ((resolve, reject) => {
-    TopicModel.find({category: category}, (err, topics) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(topics);
+        if(topics.length === 0) {
+          reject('No more topics')
+        } else {
+          resolve(topics)
+        }
       }
     })
   })
@@ -81,20 +84,21 @@ const addTopic = (newTopic) => {
           newTopic.id = count + 1;
           const mongoTopic = new TopicModel(newTopic);
           mongoTopic.save();
-          resolve("Topic saved successfully");
+          resolve({
+            "info": "Well done!",
+            "instruction":`Aww yeah, you have successfully submitted your topic. 
+            Thanks for your contribution, you can click the link below to continue adding more topics.`,
+            "link": "Click here to add more"
+          });
         })
       }
     })
   })
 }
 
-const handleLikes = (id) => {
+const handleLikes = (id, action) => {
   return new Promise ((resolve, reject) => {
-    // if thousands of people like this topic at the same time, this would be working then. 
-    // I should get the likes from database and then add new likes to it.
-    // or I can save the new likes as caches using redis, and then update later.
-    // or set the condition, updata to database if the likes reaches a number
-    TopicModel.findOneAndUpdate({id: id}, {$inc: {likes: 1}}, {new: true}, function(err, res) {
+    TopicModel.findOneAndUpdate({id: id}, {$inc: {likes: action}}, {new: true}, function(err, res) {
       if(err) {
         reject(err);
       } else {
@@ -107,7 +111,6 @@ const handleLikes = (id) => {
 
 module.exports = {
   getTopics,
-  getTopic,
   addTopic,
   handleLikes,
   getPopularTopic,
