@@ -1,28 +1,16 @@
-.category, button{
-    min-width: 100px;
-    margin-right: 10px;
+
+#filteredResults {
+  margin-bottom: 10px;
 }
-.badge.category {
-  padding: 0.6em;
-  color: #fbfdfa;
-  font-size: 12px;
+.category {
+  font-size: 15px;
 }
-.title {
-  font-size: 1.2em;
-}
-.cate-life {
-  background-color: #42ebf4;
-}
-.cate-tv {
-  background-color: #42eb76;
-}
-.cate-globalization {
-  background-color: #f232e3;
-}
-.cate-study {
-  background-color: #f5dd3e;
-}
+
 .container {
   margin-top: 10px;
+  min-height:500px;
 }
-  
+.info {
+  text-align:center;
+  margin-top: 10px;
+}
