@@ -6,3 +6,12 @@
     margin-bottom: 5px;
     padding: 5px;
 }
+
+.card {
+    margin-top: 5px;
+}
+
+.info {
+    text-align:center;
+    margin-top: 10px;
+  }

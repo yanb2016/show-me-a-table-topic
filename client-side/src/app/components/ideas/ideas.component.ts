@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import * as _ from 'lodash';
 @Component({
   selector: 'app-ideas',
   templateUrl: './ideas.component.html',
@@ -7,14 +8,40 @@ import { DataService } from '../../services/data.service';
 })
 export class IdeasComponent implements OnInit {
   ideas: any;
+  private pageNumber: number = 0;
+  msg: string = '';
+
   constructor(private dataService: DataService) { }
-
-  ngOnInit() {
-    this.dataService.getIdeas()
-    .then((res) => {
-      this.ideas = res;
-    })
+  @HostListener('document:scroll', ['$event']) 
+  scroll() {
+    this.handleScroll();
   }
-
-  
+  ngOnInit() {
+    this.loadMoreIdeas();
+    this.scroll = _.debounce(this.scroll, 1000);
+  }
+  handleScroll() {
+    let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+    if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50 )) {
+      this.loadMoreIdeas();
+    }
+  }
+  getIdeas(){
+   this.dataService.getIdeas(this.pageNumber)
+      .then(
+        ideas => {
+        if(this.pageNumber === 0) {
+          this.ideas = ideas;
+        } else {
+          this.ideas = _.union(this.ideas.concat(ideas));
+        }
+        this.pageNumber += 1;
+      })
+      .catch(err =>{
+        this.msg = 'No More ideas';
+      })
+  }
+  loadMoreIdeas() {
+    this.getIdeas();
+  }
 }
