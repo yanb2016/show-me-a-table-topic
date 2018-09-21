@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
 import { InputService } from '../../services/input.service';
 import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -29,13 +30,13 @@ export class NavBarComponent implements OnInit {
       }
     );
     // add child subscription practice
-    const subscription = this.auth.isUserAuthenticated()
-    .subscribe(
-      (res => {
-        this.autherized = res;
-      })
-    )
-    this.subscription.add(subscription);
+    // const subscription = this.auth.isUserAuthenticated()
+    // .subscribe(
+    //   (res => {
+    //     this.autherized = res;
+    //   })
+    // )
+    // this.subscription.add(subscription);
     // or simplely 
     //this.autherized = this.auth.isUserAuthenticated();
   }

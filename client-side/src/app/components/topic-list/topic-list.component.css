@@ -18,16 +18,9 @@ h2 {
   color: saddlebrown;
 }
 
-.btn-link {
-  text-decoration: none;
-}
-
 h5 {
   display: flex;
   justify-content: space-between;
-}
-.card {
-  margin-top: 5px;
 }
 .info {
   text-align:center;

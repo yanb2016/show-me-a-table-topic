@@ -1,8 +1,9 @@
 <div class="container">
-    <div class="accordion" id="accordionExample"  *ngIf="topics">
-      <div class="card"  *ngFor="let topic of (topics | search: searchTerm)" >
-        <app-topic-detail [topic]=topic></app-topic-detail>
-      </div>
-      <p class="info" *ngIf="msg">{{msg}}</p>
+  <div class="accordion" id="accordionExample"  *ngIf="topics">
+    <div class="card"  *ngFor="let topic of (topics | search: searchTerm)" >
+      <app-topic-detail [topic]=topic></app-topic-detail>
     </div>
+    <div class="info" *ngIf="msg; else elseBlock">{{msg}}</div>
+    <ng-template class="test" #elseBlock><div class="info">Scroll down to load more</div></ng-template>
+  </div>
 </div>

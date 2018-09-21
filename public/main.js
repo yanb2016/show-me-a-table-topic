@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-bar></app-nav-bar>\n<router-outlet></router-outlet>"
+module.exports = "<app-nav-bar></app-nav-bar>\n<router-outlet></router-outlet>\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -56,18 +56,12 @@ module.exports = "<app-nav-bar></app-nav-bar>\n<router-outlet></router-outlet>"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var materialize_css_dist_css_materialize_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! materialize-css/dist/css/materialize.min.css */ "./node_modules/materialize-css/dist/css/materialize.min.css");
-/* harmony import */ var materialize_css_dist_css_materialize_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(materialize_css_dist_css_materialize_min_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var materialize_css_dist_js_materialize_min_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! materialize-css/dist/js/materialize.min.js */ "./node_modules/materialize-css/dist/js/materialize.min.js");
-/* harmony import */ var materialize_css_dist_js_materialize_min_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(materialize_css_dist_js_materialize_min_js__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
@@ -102,23 +96,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _components_topic_list_topic_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/topic-list/topic-list.component */ "./src/app/components/topic-list/topic-list.component.ts");
-/* harmony import */ var _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/topic-detail/topic-detail.component */ "./src/app/components/topic-detail/topic-detail.component.ts");
-/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
-/* harmony import */ var _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/new-topic/new-topic.component */ "./src/app/components/new-topic/new-topic.component.ts");
-/* harmony import */ var _components_nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/nav-bar/nav-bar.component */ "./src/app/components/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _pipes_search_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pipes/search.pipe */ "./src/app/pipes/search.pipe.ts");
-/* harmony import */ var _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/topic-editor/topic-editor.component */ "./src/app/components/topic-editor/topic-editor.component.ts");
-/* harmony import */ var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/signup/signup.component */ "./src/app/components/signup/signup.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/most-popular-topic/most-popular-topic.component */ "./src/app/components/most-popular-topic/most-popular-topic.component.ts");
-/* harmony import */ var _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/search-results/search-results.component */ "./src/app/components/search-results/search-results.component.ts");
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
+/* harmony import */ var _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/new-topic/new-topic.component */ "./src/app/components/new-topic/new-topic.component.ts");
+/* harmony import */ var _components_nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/nav-bar/nav-bar.component */ "./src/app/components/nav-bar/nav-bar.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _pipes_search_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pipes/search.pipe */ "./src/app/pipes/search.pipe.ts");
+/* harmony import */ var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/signup/signup.component */ "./src/app/components/signup/signup.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/most-popular-topic/most-popular-topic.component */ "./src/app/components/most-popular-topic/most-popular-topic.component.ts");
+/* harmony import */ var _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/search-results/search-results.component */ "./src/app/components/search-results/search-results.component.ts");
+/* harmony import */ var _components_ideas_ideas_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/ideas/ideas.component */ "./src/app/components/ideas/ideas.component.ts");
+/* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
+/* harmony import */ var _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/topic-detail/topic-detail.component */ "./src/app/components/topic-detail/topic-detail.component.ts");
+/* harmony import */ var _components_about_about_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/about/about.component */ "./src/app/components/about/about.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -143,21 +141,23 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _components_topic_list_topic_list_component__WEBPACK_IMPORTED_MODULE_4__["TopicListComponent"],
-                _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_5__["TopicDetailComponent"],
-                _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_7__["NewTopicComponent"],
-                _components_nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_8__["NavBarComponent"],
-                _pipes_search_pipe__WEBPACK_IMPORTED_MODULE_10__["SearchPipe"],
-                _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_11__["TopicEditorComponent"],
-                _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_12__["SignupComponent"],
-                _components_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
-                _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_14__["MostPopularTopicComponent"],
-                _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_15__["SearchResultsComponent"]
+                _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_6__["NewTopicComponent"],
+                _components_nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_7__["NavBarComponent"],
+                _pipes_search_pipe__WEBPACK_IMPORTED_MODULE_9__["SearchPipe"],
+                _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_10__["SignupComponent"],
+                _components_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"],
+                _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_12__["MostPopularTopicComponent"],
+                _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_13__["SearchResultsComponent"],
+                _components_ideas_ideas_component__WEBPACK_IMPORTED_MODULE_14__["IdeasComponent"],
+                _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_15__["FooterComponent"],
+                _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_16__["TopicDetailComponent"],
+                _components_about_about_component__WEBPACK_IMPORTED_MODULE_17__["AboutComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _app_routes__WEBPACK_IMPORTED_MODULE_6__["routing"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
+                _app_routes__WEBPACK_IMPORTED_MODULE_5__["routing"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
             ],
             providers: [],
@@ -183,13 +183,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routing", function() { return routing; });
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _components_topic_list_topic_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/topic-list/topic-list.component */ "./src/app/components/topic-list/topic-list.component.ts");
-/* harmony import */ var _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/topic-detail/topic-detail.component */ "./src/app/components/topic-detail/topic-detail.component.ts");
-/* harmony import */ var _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/new-topic/new-topic.component */ "./src/app/components/new-topic/new-topic.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/signup/signup.component */ "./src/app/components/signup/signup.component.ts");
-/* harmony import */ var _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/topic-editor/topic-editor.component */ "./src/app/components/topic-editor/topic-editor.component.ts");
-/* harmony import */ var _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components//most-popular-topic/most-popular-topic.component */ "./src/app/components/most-popular-topic/most-popular-topic.component.ts");
-/* harmony import */ var _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/search-results/search-results.component */ "./src/app/components/search-results/search-results.component.ts");
+/* harmony import */ var _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/new-topic/new-topic.component */ "./src/app/components/new-topic/new-topic.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/signup/signup.component */ "./src/app/components/signup/signup.component.ts");
+/* harmony import */ var _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components//most-popular-topic/most-popular-topic.component */ "./src/app/components/most-popular-topic/most-popular-topic.component.ts");
+/* harmony import */ var _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/search-results/search-results.component */ "./src/app/components/search-results/search-results.component.ts");
+/* harmony import */ var _components_ideas_ideas_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/ideas/ideas.component */ "./src/app/components/ideas/ideas.component.ts");
+/* harmony import */ var _components_about_about_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/about/about.component */ "./src/app/components/about/about.component.ts");
 
 
 
@@ -201,17 +201,250 @@ __webpack_require__.r(__webpack_exports__);
 
 var routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_7__["MostPopularTopicComponent"] },
+    { path: 'home', component: _components_most_popular_topic_most_popular_topic_component__WEBPACK_IMPORTED_MODULE_5__["MostPopularTopicComponent"] },
+    { path: 'ideas', component: _components_ideas_ideas_component__WEBPACK_IMPORTED_MODULE_7__["IdeasComponent"] },
+    { path: 'about', component: _components_about_about_component__WEBPACK_IMPORTED_MODULE_8__["AboutComponent"] },
     { path: 'topics', component: _components_topic_list_topic_list_component__WEBPACK_IMPORTED_MODULE_1__["TopicListComponent"] },
-    { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
-    { path: 'signup', component: _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__["SignupComponent"] },
-    { path: 'topics/:category', component: _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_8__["SearchResultsComponent"] },
-    { path: 'topic/:id', component: _components_topic_detail_topic_detail_component__WEBPACK_IMPORTED_MODULE_2__["TopicDetailComponent"] },
-    { path: 'topic_ditor/:id', component: _components_topic_editor_topic_editor_component__WEBPACK_IMPORTED_MODULE_6__["TopicEditorComponent"] },
-    { path: 'new_topic', component: _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_3__["NewTopicComponent"] },
+    { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
+    { path: 'signup', component: _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_4__["SignupComponent"] },
+    { path: 'topics/:category', component: _components_search_results_search_results_component__WEBPACK_IMPORTED_MODULE_6__["SearchResultsComponent"] },
+    { path: 'new_topic', component: _components_new_topic_new_topic_component__WEBPACK_IMPORTED_MODULE_2__["NewTopicComponent"] },
     { path: '**', redirectTo: 'problems' }
 ];
 var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes);
+
+
+/***/ }),
+
+/***/ "./src/app/components/about/about.component.css":
+/*!******************************************************!*\
+  !*** ./src/app/components/about/about.component.css ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".card-body {\n    min-height: 400px;\n}\n.container {\n    margin-top: 20px;\n}\np {\n    font-size: 16px;\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/about/about.component.html":
+/*!*******************************************************!*\
+  !*** ./src/app/components/about/about.component.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">About Me & This Website</h5>\n    <p class=\"card-text\">Two years ago, I joined Toastmasters. I was excited and a little nervous about this new journey, because English is not my first language. Everyone in my club was very kind and encouraging, before long, I felt comfortable speaking in front of the group, and got very actively involved in the meetings, taking roles from Timer, Ah-counter, to Table Topics Master and Toastmasters.</p>\n    <p class=\"card-text\">Table Topics was one of my favorite meeting sections. It puts speakers on the spot, and forces them to talk about whatever comes to their minds. It’s not easy. I haven’t mastered it and often afraid of being called to stage. However, I enjoyed it every time the Table Topics Master offered good topics, and speakers responded to them with excellent short speeches.</p>\n    <p class=\"card-text\">I was Table Topics Master quite a few times. I wanted to use good topics to inspire speakers. But, it’s hard to think of good ones. Sometimes, I ended up spending a lot of time searching online, hoping to find one that works well for our meeting theme, or simply for that particular day.</p>\n    <p>I built this website to gather good Table Topics ideas from all Toastmasters. I hope these topics will give you some inspirations for hosting the next Table Topics.</p>\n    <br>\n    <p><strong>Have feedback?</strong></p>\n    <p>I’d love your feedback to make this website better. Please send them to me via topics@yanbinjin.com.</p>\n  </div>\n </div>"
+
+/***/ }),
+
+/***/ "./src/app/components/about/about.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/components/about/about.component.ts ***!
+  \*****************************************************/
+/*! exports provided: AboutComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AboutComponent = /** @class */ (function () {
+    function AboutComponent() {
+    }
+    AboutComponent.prototype.ngOnInit = function () {
+    };
+    AboutComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-about',
+            template: __webpack_require__(/*! ./about.component.html */ "./src/app/components/about/about.component.html"),
+            styles: [__webpack_require__(/*! ./about.component.css */ "./src/app/components/about/about.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AboutComponent);
+    return AboutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/footer/footer.component.css":
+/*!********************************************************!*\
+  !*** ./src/app/components/footer/footer.component.css ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "hr {\n    margin-top: 2em;\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/footer/footer.component.html":
+/*!*********************************************************!*\
+  !*** ./src/app/components/footer/footer.component.html ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <footer class=\"page-footer font-small blue pt-4\">\n    <div class=\"footer-copyright text-center py-3\">© 2018 Copyright\n      <span href=\"https://www.yanbinjin.com/\"></span>\n    </div>\n  </footer>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/footer/footer.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/components/footer/footer.component.ts ***!
+  \*******************************************************/
+/*! exports provided: FooterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FooterComponent = /** @class */ (function () {
+    function FooterComponent() {
+    }
+    FooterComponent.prototype.ngOnInit = function () {
+    };
+    FooterComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-footer',
+            template: __webpack_require__(/*! ./footer.component.html */ "./src/app/components/footer/footer.component.html"),
+            styles: [__webpack_require__(/*! ./footer.component.css */ "./src/app/components/footer/footer.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FooterComponent);
+    return FooterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/ideas/ideas.component.css":
+/*!******************************************************!*\
+  !*** ./src/app/components/ideas/ideas.component.css ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".container {\n    margin-top: 25px;\n}\n.panel {\n    margin-top: 5px;\n    margin-bottom: 5px;\n    padding: 5px;\n}\n.card {\n    margin-top: 5px;\n}\n.info {\n    text-align:center;\n    margin-top: 10px;\n}\nh3 {\n color:#666;\n}\n.test {\n    text-align: center;\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/ideas/ideas.component.html":
+/*!*******************************************************!*\
+  !*** ./src/app/components/ideas/ideas.component.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <h3>Tips for Table Topic Masters</h3>\n  <div class=\"card\" *ngFor=\"let idea of ideas\">\n    <h5 class=\"card-header\">{{idea.idea}}</h5>\n    <div class=\"card-body\">\n      <p class=\"card-text\">{{idea.description}}</p>\n    </div>\n  </div>\n  <div class=\"info\" *ngIf=\"msg; else elseBlock\">{{msg}}</div>\n  <ng-template class=\"test\" #elseBlock><div class=\"info\">Scroll down to load more</div></ng-template>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/ideas/ideas.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/components/ideas/ideas.component.ts ***!
+  \*****************************************************/
+/*! exports provided: IdeasComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IdeasComponent", function() { return IdeasComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var IdeasComponent = /** @class */ (function () {
+    function IdeasComponent(dataService) {
+        this.dataService = dataService;
+        this.pageNumber = 0;
+        this.msg = '';
+    }
+    IdeasComponent.prototype.scroll = function () {
+        this.handleScroll();
+    };
+    IdeasComponent.prototype.ngOnInit = function () {
+        this.loadMoreIdeas();
+        this.scroll = lodash__WEBPACK_IMPORTED_MODULE_2__["debounce"](this.scroll, 1000);
+    };
+    IdeasComponent.prototype.handleScroll = function () {
+        var scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50)) {
+            this.loadMoreIdeas();
+        }
+    };
+    IdeasComponent.prototype.getIdeas = function () {
+        var _this = this;
+        this.dataService.getIdeas(this.pageNumber)
+            .then(function (ideas) {
+            if (_this.pageNumber === 0) {
+                _this.ideas = ideas;
+            }
+            else {
+                _this.ideas = lodash__WEBPACK_IMPORTED_MODULE_2__["union"](_this.ideas.concat(ideas));
+            }
+            _this.pageNumber += 1;
+        })
+            .catch(function (err) {
+            _this.msg = 'No More ideas';
+        });
+    };
+    IdeasComponent.prototype.loadMoreIdeas = function () {
+        this.getIdeas();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('document:scroll', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], IdeasComponent.prototype, "scroll", null);
+    IdeasComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-ideas',
+            template: __webpack_require__(/*! ./ideas.component.html */ "./src/app/components/ideas/ideas.component.html"),
+            styles: [__webpack_require__(/*! ./ideas.component.css */ "./src/app/components/ideas/ideas.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
+    ], IdeasComponent);
+    return IdeasComponent;
+}());
+
 
 
 /***/ }),
@@ -223,7 +456,7 @@ var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  margin: auto;\n\n}\n.login-panel {\n  margin: auto;\n  width: 40%;\n}\n.error-message {\n  padding-left: 20px;\n  color: red;\n}"
+module.exports = ".container {\n  margin: auto;\n  height: 500px;\n  margin-top: 25px;\n\n}\n.login-panel {\n  margin: auto;\n  width: 40%;\n}\n.error-message {\n  padding-left: 20px;\n  color: red;\n}\n.btn-success {\n  color:white;\n  background-color: #4688BC;\n  border:none;\n}"
 
 /***/ }),
 
@@ -329,7 +562,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\na {\n  text-decoration: none;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\nh2 {\n  color: saddlebrown;\n}"
+module.exports = "a {\n  text-decoration: none;\n}\n\n.badge-secondary {\n  margin-left:16px;\n}\n\n.btn-link {\n  font-size: 1.1em;\n  color: #4688BC;\n  white-space: normal;\n  text-align: left;\n}\n\n.container {\n  margin-top: 15px;\n}\n\nh5 {\n  display: flex;\n  justify-content: space-between;\n}\n\nh3 {\n  color: #666;\n}\n\n.btn-link {\n  text-decoration: none;\n}"
 
 /***/ }),
 
@@ -340,7 +573,7 @@ module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h2>Most popular topics</h2>\n  <div class=\"list-group\">\n    <div class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\">\n      <div><strong class=\"title\"> <a [routerLink]=\"['/topic', topic.id]\">{{topic.name}}</a></strong></div>\n      <div><a title=\"Filter by category\" class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\" [routerLink]=\"['/topics', topic.category]\">\n        {{topic.category}}\n      </a></div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <h3>Top 10 Most Popular Topics</h3>\n  <div class=\"accordion\" id=\"accordionExample\">\n    <div class=\"card\"  *ngFor=\"let topic of (topics | search: searchTerm)\" >\n      <app-topic-detail [topic]=topic></app-topic-detail>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -392,6 +625,9 @@ var MostPopularTopicComponent = /** @class */ (function () {
         this.subscriptionInput = this.inputService.getInput()
             .subscribe(function (inputTerm) { return _this.searchTerm = inputTerm; });
     };
+    MostPopularTopicComponent.prototype.handleLikes = function (e, action) {
+        this.dataService.handlLikes(e, action);
+    };
     MostPopularTopicComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-most-popular-topic',
@@ -415,7 +651,7 @@ var MostPopularTopicComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "nav a {\n  justify-content: flex-start;\n  padding: 5px 10px;;\n  text-decoration: none;\n  margin: 10px 5px;;\n  display: inline-block;\n\n  border-radius: 4px;\n  \n}\n\n.navbar {\n  justify-content: flex-start;\n  margin-bottom: -1px;\n  padding:0px;\n}\n\n.bg-light {\n  background-color: #563d7c !important;\n\n}\n\n.navbar-brand {\n  color: white;\n}\n\n.nav-link {\n  color: #cbbde2 !important;\n  font-size: 1.25rem;\n}\n\ncontainer {\n  margin-bottom: 10px;\n}"
+module.exports = "nav a {\n  justify-content: flex-start;\n  padding: 5px 10px;\n  text-decoration: none;\n  margin: 10px 5px;;\n  display: inline-block;\n  border-radius: 4px;\n  \n}\n\n.navbar {\n  justify-content: flex-start;\n  margin-bottom: -1px;\n  padding:0px;\n}\n\n.bg-light {\n  background-color: #4688BC !important;\n\n}\n\n.navbar-brand {\n  color: white;\n}\n\n.nav-link {\n  color: white !important;\n  font-size: 1.25rem;\n}\n\ncontainer {\n  margin-bottom: 10px;\n  padding: 0px;\n}\n\n.btn-outline-success {\n  color:white;\n  background-color: #4688BC;\n  border:none;\n}\n\n.active-link {\n  background-color:#325f82;\n}\n\n.form-inline {\n  margin-left: 5px;\n  padding:5px 10px;\n}"
 
 /***/ }),
 
@@ -426,7 +662,7 @@ module.exports = "nav a {\n  justify-content: flex-start;\n  padding: 5px 10px;;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <a class=\"nav-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/new_topic']\">Add New topic</a>\n        </li>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <form class=\"form-inline my-2 my-lg-0\">\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n              <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\"(click)=\"searchTopic()\">Search</button>\n            </form>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li>\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\" [routerLink]=\"['/home']\">Logout</a>\n            </li>\n        </ul>\n        </div>\n    </div>\n  </nav>\n</div>\n"
+module.exports = "<!-- <div class=\"container\"> -->\n  <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <div class=\"container\">\n    <a class=\"nav-link\" routerLinkActive=\"active-link\" [routerLink]=\"['/home']\">Home</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLinkActive=\"active-link\" [routerLink]=\"['/topics']\">All Topics</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLinkActive=\"active-link\" [routerLink]=\"['/new_topic']\">Add Topic</a>\n        </li>\n        <form  class=\"form-inline my-2 my-lg-0\">\n            <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\" [formControl]=\"searchBox\">\n            <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\"(click)=\"searchTopic()\">Search</button>\n        </form>\n      </ul>\n      <div>\n        <ul class=\"navbar-nav mr-auto\">\n          <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active-link\" [routerLink]=\"['/ideas']\">Tips for TT Masters</a>\n          </li>\n          <li class=\"nav-item\">\n              <a class=\"nav-link\"  routerLinkActive=\"active-link\" [routerLink]=\"['/about']\">About</a>\n          </li>\n          <!-- <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/login']\">Login</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"!autherized\" [routerLink]=\"['/signup']\">Signup</a>\n          </li> -->\n          <!-- <li class=\"nav-item\">\n            <a class=\"nav-link\" *ngIf=\"user\">{{user}}</a>\n          </li> -->\n          <!-- <li class=\"nav-item\">\n              <a class=\"nav-link\" *ngIf=\"autherized\" (click)=\"logout()\" [routerLink]=\"['/home']\">Logout</a>\n            </li> -->\n        </ul>\n        </div>\n    </div>\n    </div>\n  </nav>\n  \n\n"
 
 /***/ }),
 
@@ -478,11 +714,13 @@ var NavBarComponent = /** @class */ (function () {
             _this.input.changeInput(term);
         });
         // add child subscription practice
-        var subscription = this.auth.isUserAuthenticated()
-            .subscribe((function (res) {
-            _this.autherized = res;
-        }));
-        this.subscription.add(subscription);
+        // const subscription = this.auth.isUserAuthenticated()
+        // .subscribe(
+        //   (res => {
+        //     this.autherized = res;
+        //   })
+        // )
+        // this.subscription.add(subscription);
         // or simplely 
         //this.autherized = this.auth.isUserAuthenticated();
     };
@@ -521,7 +759,7 @@ var NavBarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  margin-top: 10px;\n}\n#resetBtn {\n  margin-left: 5px;\n  margin-right: 5px;\n}"
+module.exports = ".container {\n  margin-top: 10px;\n  height: 500px;\n}\n#resetBtn {\n  margin-left: 5px;\n  margin-right: 5px;\n}\n.mb-0 {\n cursor: pointer;\n}\n.btn-default {\n  background-color: #4688BC;\n  color: white;\n}"
 
 /***/ }),
 
@@ -532,7 +770,7 @@ module.exports = ".container {\n  margin-top: 10px;\n}\n#resetBtn {\n  margin-le
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <form #topicForm=\"ngForm\">\n    <div [hidden]=\"topicForm.submitted\">\n      <div class=\"form-group\">\n        <label for=\"topicName\">Name</label>\n        <input id=\"topicName\" name=\"topicName\" class=\"form-control\" required\n          minlength=\"4\" [(ngModel)]=\"newTopic.name\" #name=\"ngModel\"\n          placeholder=\"Input name here\">\n        <div *ngIf=\"name.invalid && (name.dirty || name.touched)\" class=\"alert alert-danger\">\n          <div *ngIf=\"name.errors.required\">\n            Name is required.\n          </div>\n          <div *ngIf=\"name.errors.minlength\">\n            Name must be at least 4 characters long.\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"topicDesc\">Topic description</label>\n        <textarea name = \"topicDesc\" id=\"topicDesc\" class=\"form-control\"\n          placeholder=\"Input topic description\" \n          [(ngModel)] = \"newTopic.desc\" rows=\"3\">\n        </textarea>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"topicCategory\">Category</label> \n          <select class=\"form-control\" id=\"topicCategory\" name=\"topicCategory\"\n          [(ngModel)] = \"newTopic.category\">\n            <option *ngFor = \"let category of categories\" [value] = \"category\">\n              {{category}}\n            </option>\n          </select>\n      </div>  \n      <button type=\"submit\" class=\"btn btn-default\" [disabled]=\"topicForm.invalid\" (click)=\"addTopic()\">Submit</button>\n      <button type=\"button\" class=\"btn btn-default\" (click)=\"resetForm()\">Reset</button>\n    </div>\n\n    <div class=\"submitted-message\" *ngIf=\"topicForm.submitted\">\n      <p>You've submitted your topic!</p>\n      <button [routerLink]=\"['/topics']\">Check list</button>\n    </div>\n  </form>\n</div>\n  "
+module.exports = "<div class=\"container\">\n  <form #topicForm=\"ngForm\">\n    <div [hidden]=\"submitted\">\n      <div class=\"form-group\">\n        <label for=\"topicName\"><strong>Title</strong></label>\n        <input id=\"topicName\" name=\"topicName\" class=\"form-control\" required\n          minlength=\"4\" [(ngModel)]=\"newTopic.name\" #name=\"ngModel\"\n          placeholder=\"Input Title\">\n        <div *ngIf=\"name.invalid && (name.dirty || name.touched)\" class=\"alert alert-danger\">\n          <div *ngIf=\"name.errors.required\">\n            Title is required.\n          </div>\n          <div *ngIf=\"name.errors.minlength\">\n            Title must be at least 4 characters long.\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"topicDesc\"><strong>Further description</strong></label>\n        <textarea name = \"topicDesc\" id=\"topicDesc\" class=\"form-control\"\n          placeholder=\"Further description or tips\" \n          [(ngModel)] = \"newTopic.desc\" rows=\"3\">\n        </textarea>\n      </div>\n\n\n      <div class=\"form-group\">\n        <label for=\"topicCategory\"><strong>Category</strong></label> \n        <input id=\"topicCategory\" name=\"topicCategory\" class=\"form-control\" required\n          minlength=\"2\" [(ngModel)]=\"newTopic.category\" #category=\"ngModel\"\n          placeholder=\"E.g. travel, music, movie, pets ...  \">\n        <div *ngIf=\"category.invalid && (category.dirty || category.touched)\" class=\"alert alert-danger\">\n          <div *ngIf=\"category.errors.required\">\n            Category is required.\n          </div>\n          <div *ngIf=\"category.errors.minlength\">\n            Category must be at least 2 characters long.\n          </div>\n        </div>  \n      </div>\n      <button type=\"submit\" class=\"btn btn-default\" [disabled]=\"topicForm.invalid\" (click)=\"addTopic()\">Submit</button>\n    </div>\n    <div class=\"submitted-message\" *ngIf=\"submitted\">\n        <div class=\"alert alert-success\" role=\"alert\" *ngIf=\"displayInfo\">\n            <h4 class=\"alert-heading\">{{displayInfo.info}}</h4>\n            <p>{{displayInfo.instruction}}</p>\n            <hr>\n            <p class=\"mb-0\"><a (click)=\"submitted = false\">{{displayInfo.link}}</a></p>\n        </div>\n    </div> \n  </form>\n</div>\n\n"
 
 /***/ }),
 
@@ -573,17 +811,24 @@ var NewTopicComponent = /** @class */ (function () {
     function NewTopicComponent(dataService, auth) {
         this.dataService = dataService;
         this.auth = auth;
+        this.submitted = false;
         this.newTopic = Object.assign({}, DEFAULT_TOPIC);
-        this.categories = ['tv', 'life', 'study', 'globalization'];
     }
     NewTopicComponent.prototype.ngOnInit = function () {
         this.newTopic.author = this.auth.getEmail();
     };
     NewTopicComponent.prototype.addTopic = function () {
-        this.dataService.addTopic(this.newTopic);
-    };
-    NewTopicComponent.prototype.resetForm = function () {
-        this.newTopic = Object.assign({}, DEFAULT_TOPIC);
+        var _this = this;
+        this.submitted = true;
+        console.log(this.submitted);
+        this.newTopic.category = this.newTopic.category.toLowerCase();
+        this.dataService.addTopic(this.newTopic)
+            .then(function (res) {
+            _this.displayInfo = res;
+        })
+            .catch(function (error) {
+            _this.displayInfo = error;
+        });
     };
     NewTopicComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -608,7 +853,7 @@ var NewTopicComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".category, button{\n    min-width: 100px;\n    margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.cate-life {\n  background-color: #42ebf4;\n}\n.cate-tv {\n  background-color: #42eb76;\n}\n.cate-globalization {\n  background-color: #f232e3;\n}\n.cate-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\n  "
+module.exports = "\n#filteredResults {\n  margin-bottom: 10px;\n}\n.category {\n  font-size: 15px;\n}\n.container {\n  margin-top: 10px;\n  min-height:600px;\n}\n.info {\n  text-align:center;\n  margin-top: 10px;\n}"
 
 /***/ }),
 
@@ -619,7 +864,7 @@ module.exports = ".category, button{\n    min-width: 100px;\n    margin-right: 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div> Filtered by <span class=\"{{'pull-left badge category cate-' + topics[0].category.toLocaleLowerCase()}}\">{{topics[0].category }}</span><button (click)=\"goBack()\">Clear</button></div>\n  <div class=\"list-group\">\n    <div class=\"list-group-item\" *ngFor=\"let topic of topics\">\n      <strong class=\"title\" > <a [routerLink]=\"['/topic', topic.id]\">{{topic.name}}</a></strong>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"container\" *ngIf=\"topics\">\n  <div id=\"filteredResults\">\n     Filtered by \n     <span class=\"pull-left badge category\">{{ topics[0].category }}</span>\n     <button type=\"button\" class=\"btn btn-info btn-sm\" (click)=\"goBack()\">Clear Filter</button>\n  </div>\n  <div class=\"card\"  *ngFor=\"let topic of topics\">\n      <app-topic-detail [topic]=topic></app-topic-detail>\n  </div>\n  <div class=\"info\" *ngIf=\"msg; else elseBlock\">{{msg}}</div>\n  <ng-template class=\"test\" #elseBlock><div class=\"info\">Scroll down to load more</div></ng-template>\n</div>"
 
 /***/ }),
 
@@ -637,6 +882,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -650,22 +897,63 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SearchResultsComponent = /** @class */ (function () {
     function SearchResultsComponent(dataService, location, route) {
         this.dataService = dataService;
         this.location = location;
         this.route = route;
+        this.pageNumber = 0;
+        this.category = '';
     }
+    SearchResultsComponent.prototype.scroll = function () {
+        this.handleScroll();
+    };
     SearchResultsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
-            _this.dataService.getSearchedTopics(params['category'])
-                .then(function (topics) { return _this.topics = topics; });
+            _this.category = params['category'];
+            _this.getTopics(_this.category, _this.pageNumber);
+        });
+        this.scroll = lodash__WEBPACK_IMPORTED_MODULE_4__["debounce"](this.scroll, 1000);
+    };
+    SearchResultsComponent.prototype.getTopics = function (category, pageNumber) {
+        var _this = this;
+        this.dataService.getSearchedTopics(category, pageNumber)
+            .then(function (topics) {
+            if (topics.length < 8) {
+                _this.msg = 'No More Topics';
+            }
+            if (_this.pageNumber === 0) {
+                _this.topics = topics;
+            }
+            else {
+                _this.topics = lodash__WEBPACK_IMPORTED_MODULE_4__["union"](_this.topics.concat(topics));
+            }
+            _this.pageNumber += 1;
+        })
+            .catch(function (err) {
+            _this.msg = 'No More Topics';
         });
     };
     SearchResultsComponent.prototype.goBack = function () {
         this.location.back();
     };
+    SearchResultsComponent.prototype.handleScroll = function () {
+        var scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50)) {
+            this.loadMoreTopics();
+        }
+    };
+    SearchResultsComponent.prototype.loadMoreTopics = function () {
+        this.getTopics(this.category, this.pageNumber);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('document:scroll', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], SearchResultsComponent.prototype, "scroll", null);
     SearchResultsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-search-results',
@@ -690,7 +978,7 @@ var SearchResultsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container {\n    margin-top: 25px;\n    height: 500px;\n}\n.btn-success {\n    color:white;\n    background-color: #4688BC;\n    border:none;\n  }"
 
 /***/ }),
 
@@ -793,7 +1081,7 @@ var SignupComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "a {\n    text-decoration: none;\n  }\n.badge-secondary {\n  margin-left:13px;\n}\n.btn-link {\n  font-size: 1.1em;\n  color: #4688BC;\n  white-space: normal;\n  text-align: left;\n  text-decoration: none;\n}\nh5 {\n  display: flex;\n  justify-content: space-between;\n}\n.like {\n  background-color: #4688BC;\n  color: white;\n}\n.card-body {\n  padding-left: 33px;\n}"
 
 /***/ }),
 
@@ -804,7 +1092,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-sm-8 col-md-12\">\n    <div>\n      <h2>\n        {{ topic.id}}. {{topic.name}}\n      </h2>\n      <p>\n        {{topic.desc}}\n        {{topic.likes}}\n      </p>   \n      <button class=\"btn btn-outline-success my-2 my-sm-0\" *ngIf=\"author===topic.author\"[routerLink]=\"['/topic_ditor', topic.id]\">Edit this problem</button>\n      <button (click)=\"goBack()\">Go Back</button>\n    </div>\n    <div class=\"hidden-xs clo-sm-12 col-md-8\"></div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card-header\" id=\"{{topic._id}}\">\n    <button class=\"btn btn-link collapsed\" type=\"button\" data-toggle=\"collapse\" attr.data-target=\"#collapse{{topic.id}}\" aria-expanded=\"false\" attr.aria-controls=\"collapse{{topic.id}}\">\n      {{topic.name}}\n    </button>\n  <h5>\n    <a class=\"badge badge-secondary\" [routerLink]=\"['/topics', topic.category]\">{{topic.category}}</a>\n    <button class=\"btn-right badge navbar-right like\" (click)=\"handleLikes(topic.id, 1)\" *ngIf=\"!isLiked\">Like</button>\n    <button class=\"btn-right badge navbar-right liked\" (click)=\"handleLikes(topic.id, -1)\" *ngIf=\"isLiked\">Liked</button>\n  </h5>\n</div>\n<div id=\"collapse{{topic.id}}\" class=\"collapse\" attr.aria-labelledby=\"{{topic._id}}\" data-parent=\"#accordionExample\">\n  <div class=\"card-body\">\n    {{topic.desc || \"No description\"}}\n  </div>\n</div>"
 
 /***/ }),
 
@@ -819,10 +1107,7 @@ module.exports = "<div class=\"container\" *ngIf=\"topic\">\n  <div class=\"col-
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopicDetailComponent", function() { return TopicDetailComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -834,132 +1119,30 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
-
-
 var TopicDetailComponent = /** @class */ (function () {
-    function TopicDetailComponent(dataService, route, location, auth) {
+    function TopicDetailComponent(dataService) {
         this.dataService = dataService;
-        this.route = route;
-        this.location = location;
-        this.auth = auth;
+        this.isLiked = false;
     }
     TopicDetailComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.subscribe(function (params) {
-            _this.dataService.getTopic(+params['id'])
-                .then(function (topic) { return _this.topic = topic; });
-        });
-        this.author = this.auth.getEmail();
     };
-    TopicDetailComponent.prototype.goBack = function () {
-        this.location.back();
+    TopicDetailComponent.prototype.handleLikes = function (e, action) {
+        this.isLiked = !this.isLiked;
+        this.dataService.handlLikes(e, action);
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TopicDetailComponent.prototype, "topic", void 0);
     TopicDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-topic-detail',
             template: __webpack_require__(/*! ./topic-detail.component.html */ "./src/app/components/topic-detail/topic-detail.component.html"),
             styles: [__webpack_require__(/*! ./topic-detail.component.css */ "./src/app/components/topic-detail/topic-detail.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"],
-            _services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
+        __metadata("design:paramtypes", [_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
     ], TopicDetailComponent);
     return TopicDetailComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/components/topic-editor/topic-editor.component.css":
-/*!********************************************************************!*\
-  !*** ./src/app/components/topic-editor/topic-editor.component.css ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/components/topic-editor/topic-editor.component.html":
-/*!*********************************************************************!*\
-  !*** ./src/app/components/topic-editor/topic-editor.component.html ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\n  <form #topicForm=\"ngForm\">\n    <div [hidden]=\"topicForm.submitted\">\n      <div class=\"form-group\">\n        <label for=\"topicName\">Name</label>\n        <input id=\"topicName\" name=\"topicName\" class=\"form-control\" required\n          minlength=\"4\" [(ngModel)]=\"newTopic.name\" #name=\"ngModel\"\n          value = {{newTopic.name}}>\n        <div *ngIf=\"name.invalid && name.dirty\" class=\"alert alert-danger\">\n          <div *ngIf=\"name.errors.required\">\n            Name is required.\n          </div>\n          <div *ngIf=\"name.errors.minlength\">\n            Name must be at least 4 characters long.\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"topicDesc\">topic description</label>\n        <textarea name = \"topicDesc\" id=\"topicDesc\" class=\"form-control\"\n          [(ngModel)] = \"newTopic.desc\" rows=\"3\" value = {{newTopic.desc}}>\n        </textarea>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"topicCategory\">Category</label> \n          <select class=\"form-control\" id=\"category\" name=\"category\"\n          [(ngModel)] = \"newTopic.category\">\n            <option *ngFor = \"let category of categories\" [value] = \"category\">\n              {{category}}\n            </option>\n          </select>\n      </div>  \n      <button type=\"submit\" class=\"btn btn-default\"  (click)=\"updatetopic()\">Submit</button>\n      <button type=\"button\" class=\"btn btn-default\" (click)=\"resetForm()\">Reset</button>\n    </div>\n\n    <div class=\"submitted-message\" *ngIf=\"topicForm.submitted\">\n      <button [routerLink]=\"['/topics']\">Check list</button>\n    </div>\n  </form>\n</div>\n  "
-
-/***/ }),
-
-/***/ "./src/app/components/topic-editor/topic-editor.component.ts":
-/*!*******************************************************************!*\
-  !*** ./src/app/components/topic-editor/topic-editor.component.ts ***!
-  \*******************************************************************/
-/*! exports provided: TopicEditorComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopicEditorComponent", function() { return TopicEditorComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var DEFAULT_TOPIC = {
-    id: 0,
-    name: '',
-    desc: '',
-    likes: 0,
-    author: '',
-    category: ''
-};
-var TopicEditorComponent = /** @class */ (function () {
-    function TopicEditorComponent(dataService, route) {
-        this.dataService = dataService;
-        this.route = route;
-        this.newTopic = Object.assign({}, DEFAULT_TOPIC);
-        this.categories = ['life', 'tv', 'globalization', 'study'];
-    }
-    TopicEditorComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.subscribe(function (params) {
-            _this.dataService.getTopic(+params['id'])
-                .then(function (topic) {
-                return _this.newTopic = topic;
-            });
-        });
-    };
-    TopicEditorComponent.prototype.updatetopic = function () {
-        this.dataService.updateTopic(this.newTopic);
-    };
-    TopicEditorComponent.prototype.resetForm = function () {
-        this.newTopic = Object.assign({}, DEFAULT_TOPIC);
-    };
-    TopicEditorComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-topic-editor',
-            template: __webpack_require__(/*! ./topic-editor.component.html */ "./src/app/components/topic-editor/topic-editor.component.html"),
-            styles: [__webpack_require__(/*! ./topic-editor.component.css */ "./src/app/components/topic-editor/topic-editor.component.css")]
-        }),
-        __metadata("design:paramtypes", [_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-    ], TopicEditorComponent);
-    return TopicEditorComponent;
 }());
 
 
@@ -973,7 +1156,7 @@ var TopicEditorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;\n}\n.badge.category {\n  padding: 0.6em;\n  color: #fbfdfa;\n  font-size: 12px;\n}\n.title {\n  font-size: 1.2em;\n}\n.diff-life {\n  background-color: #42ebf4;\n}\n.diff-tv {\n  background-color: #42eb76;\n}\n.diff-globalization {\n  background-color: #f232e3;\n}\n.diff-study {\n  background-color: #f5dd3e;\n}\n.container {\n  margin-top: 10px;\n}\n"
+module.exports = "a {\n  text-decoration: none;\n}\n.badge-secondary {\n  margin-left:16px;\n}\n.btn-link {\n  font-size: 1.1em;\n  color: #4688BC;\n  white-space: normal;\n  text-align: left;\n}\n.container {\n  margin-top: 15px;\n}\nh2 {\n  color: saddlebrown;\n}\nh5 {\n  display: flex;\n  justify-content: space-between;\n}\n.info {\n  text-align:center;\n  margin-top: 10px;\n}"
 
 /***/ }),
 
@@ -984,7 +1167,7 @@ module.exports = ".category, button{\n  min-width: 100px;\n  margin-right: 10px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <!-- <h2>Most popular topics</h2> -->\n  <div class=\"list-group\">\n    <div class=\"list-group-item\" *ngFor=\"let topic of (topics | search: searchTerm)\">\n      <a title=\"Filter by category\" class=\"{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}\" [routerLink]=\"['/topics', topic.category]\">\n        {{topic.category}}\n      </a>\n      <strong class=\"title\"> <a [routerLink]=\"['/topic', topic.id]\">{{topic.name}}</a></strong>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"accordion\" id=\"accordionExample\"  *ngIf=\"topics\">\n    <div class=\"card\"  *ngFor=\"let topic of (topics | search: searchTerm)\" >\n      <app-topic-detail [topic]=topic></app-topic-detail>\n    </div>\n    <div class=\"info\" *ngIf=\"msg; else elseBlock\">{{msg}}</div>\n    <ng-template class=\"test\" #elseBlock><div class=\"info\">Scroll down to load more</div></ng-template>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1001,6 +1184,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
 /* harmony import */ var _services_input_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/input.service */ "./src/app/services/input.service.ts");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1013,24 +1198,43 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var TopicListComponent = /** @class */ (function () {
     function TopicListComponent(dataService, inputService) {
         this.dataService = dataService;
         this.inputService = inputService;
+        this.pageNumber = 0;
         this.searchTerm = '';
+        this.msg = '';
     }
-    TopicListComponent.prototype.ngOnInit = function () {
-        this.getTopics();
-        this.getSearchTerm();
+    TopicListComponent.prototype.scroll = function () {
+        this.handleScroll();
     };
-    TopicListComponent.prototype.ngOnDestroy = function () {
-        this.subscriptionTopic.unsubscribe();
+    TopicListComponent.prototype.ngOnInit = function () {
+        this.loadMoreTopics();
+        this.getSearchTerm();
+        this.scroll = lodash__WEBPACK_IMPORTED_MODULE_3__["debounce"](this.scroll, 1000);
+    };
+    TopicListComponent.prototype.handleScroll = function () {
+        var scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50)) {
+            this.loadMoreTopics();
+        }
     };
     TopicListComponent.prototype.getTopics = function () {
         var _this = this;
-        this.subscriptionTopic = this.dataService.getTopics()
-            .subscribe(function (topics) {
-            _this.topics = topics;
+        this.dataService.getTopics(this.pageNumber)
+            .then(function (topics) {
+            if (_this.pageNumber === 0) {
+                _this.topics = topics;
+            }
+            else {
+                _this.topics = lodash__WEBPACK_IMPORTED_MODULE_3__["union"](_this.topics.concat(topics));
+            }
+            _this.pageNumber += 1;
+        })
+            .catch(function (err) {
+            _this.msg = 'No More Topics';
         });
     };
     TopicListComponent.prototype.getSearchTerm = function () {
@@ -1038,6 +1242,15 @@ var TopicListComponent = /** @class */ (function () {
         this.subscriptionInput = this.inputService.getInput()
             .subscribe(function (inputTerm) { return _this.searchTerm = inputTerm; });
     };
+    TopicListComponent.prototype.loadMoreTopics = function () {
+        this.getTopics();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('document:scroll', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TopicListComponent.prototype, "scroll", null);
     TopicListComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-topic-list',
@@ -1179,15 +1392,11 @@ var DataService = /** @class */ (function () {
         this.auth = auth;
         this._topicSource = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
     }
-    DataService.prototype.getTopics = function () {
-        var _this = this;
-        this.httpClient.get('api/v1/topics')
+    DataService.prototype.getTopics = function (pageNumber) {
+        return this.httpClient.get("api/v1/topics/pagenumber/" + pageNumber)
             .toPromise()
-            .then(function (res) {
-            _this._topicSource.next(res);
-        })
+            .then(function (res) { return res; })
             .catch(this.handleError);
-        return this._topicSource.asObservable();
     };
     DataService.prototype.getPopularTopics = function () {
         var _this = this;
@@ -1199,14 +1408,17 @@ var DataService = /** @class */ (function () {
             .catch(this.handleError);
         return this._topicSource.asObservable();
     };
-    DataService.prototype.getSearchedTopics = function (category) {
-        return this.httpClient.get("api/v1/topics/" + category)
+    DataService.prototype.getSearchedTopics = function (category, pagenumber) {
+        return this.httpClient.get("api/v1/topics/" + category + "/" + pagenumber)
             .toPromise()
-            .then(function (res) { return res; })
+            .then(function (res) {
+            console.log(res);
+            return res;
+        })
             .catch(this.handleError);
     };
-    DataService.prototype.getTopic = function (id) {
-        return this.httpClient.get("api/v1/topic/" + id)
+    DataService.prototype.getIdeas = function (pageNumber) {
+        return this.httpClient.get("api/v1/ideas/pagenumber/" + pageNumber)
             .toPromise()
             .then(function (res) { return res; })
             .catch(this.handleError);
@@ -1214,8 +1426,7 @@ var DataService = /** @class */ (function () {
     DataService.prototype.addTopic = function (topic) {
         var options = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                'constent-type': 'application/json',
-                'Authorization': 'bearer ' + this.auth.getToken()
+                'constent-type': 'application/json'
             })
         };
         return this.httpClient.post('editor/topics', topic, options)
@@ -1225,14 +1436,13 @@ var DataService = /** @class */ (function () {
         })
             .catch(this.handleError);
     };
-    DataService.prototype.updateTopic = function (topic) {
+    DataService.prototype.handlLikes = function (id, action) {
         var options = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'constent-type': 'application/json',
-                'Authorization': 'bearer ' + this.auth.getToken()
             })
         };
-        return this.httpClient.put('editor/topics', topic, options)
+        return this.httpClient.put("editor/topics/" + id + "/" + action, options)
             .toPromise()
             .then(function (res) {
             return res;
@@ -1240,7 +1450,8 @@ var DataService = /** @class */ (function () {
             .catch(this.handleError);
     };
     DataService.prototype.handleError = function (err) {
-        return Promise.reject(err.body || err);
+        console.log(err);
+        return Promise.reject(err.error || err);
     };
     DataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

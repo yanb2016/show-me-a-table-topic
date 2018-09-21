@@ -1,10 +1,9 @@
 nav a {
   justify-content: flex-start;
-  padding: 5px 10px;;
+  padding: 5px 10px;
   text-decoration: none;
   margin: 10px 5px;;
   display: inline-block;
-
   border-radius: 4px;
   
 }
@@ -16,18 +15,31 @@ nav a {
 }
 
 .bg-light {
-  background-color: #563d7c !important;
+  background-color: #4688BC !important;
 
 }
-
 .navbar-brand {
   color: white;
 }
 .nav-link {
-  color: #cbbde2 !important;
+  color: white !important;
   font-size: 1.25rem;
 }
 
 container {
   margin-bottom: 10px;
+  padding: 0px;
+}
+.btn-outline-success {
+  color:white;
+  background-color: #4688BC;
+  border:none;
+}
+.active-link {
+  background-color:#325f82;
+}
+
+.form-inline {
+  margin-left: 5px;
+  padding:5px 10px;
 }

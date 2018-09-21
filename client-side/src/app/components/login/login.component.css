@@ -1,5 +1,7 @@
 .container {
   margin: auto;
+  height: 500px;
+  margin-top: 25px;
 
 }
 .login-panel {
@@ -10,4 +12,10 @@
 .error-message {
   padding-left: 20px;
   color: red;
+}
+
+.btn-success {
+  color:white;
+  background-color: #4688BC;
+  border:none;
 }

@@ -33,6 +33,9 @@ export class SearchResultsComponent implements OnInit {
     this.dataService.getSearchedTopics(category, pageNumber)
        .then(
          topics => {
+          if(topics.length < 8) {
+            this.msg = 'No More Topics'
+          }
          if(this.pageNumber === 0) {
            this.topics = topics;
          } else {

@@ -9,7 +9,7 @@ import { InputService } from '../../services/input.service';
   templateUrl: './most-popular-topic.component.html',
   styleUrls: ['./most-popular-topic.component.css']
 })
-export class MostPopularTopicComponent implements OnInit {
+export class MostPopularTopicComponent implements OnInit,OnDestroy {
   topics: Topic[];
   subscriptionTopic: Subscription;
 
@@ -38,8 +38,8 @@ export class MostPopularTopicComponent implements OnInit {
                                   inputTerm => this.searchTerm = inputTerm
                                 );
   }
-  handleLikes(e) {
+  handleLikes(e, action) {
 
-    this.dataService.updateTopic(e);
+    this.dataService.handlLikes(e, action);
   }
 }

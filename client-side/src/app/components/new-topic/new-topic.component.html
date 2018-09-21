@@ -2,7 +2,7 @@
   <form #topicForm="ngForm">
     <div [hidden]="submitted">
       <div class="form-group">
-        <label for="topicName">Title</label>
+        <label for="topicName"><strong>Title</strong></label>
         <input id="topicName" name="topicName" class="form-control" required
           minlength="4" [(ngModel)]="newTopic.name" #name="ngModel"
           placeholder="Input Title">
@@ -17,7 +17,7 @@
       </div>
 
       <div class="form-group">
-        <label for="topicDesc">Further description</label>
+        <label for="topicDesc"><strong>Further description</strong></label>
         <textarea name = "topicDesc" id="topicDesc" class="form-control"
           placeholder="Further description or tips" 
           [(ngModel)] = "newTopic.desc" rows="3">
@@ -26,7 +26,7 @@
 
 
       <div class="form-group">
-        <label for="topicCategory">Category</label> 
+        <label for="topicCategory"><strong>Category</strong></label> 
         <input id="topicCategory" name="topicCategory" class="form-control" required
           minlength="2" [(ngModel)]="newTopic.category" #category="ngModel"
           placeholder="E.g. travel, music, movie, pets ...  ">
@@ -41,7 +41,6 @@
       </div>
       <button type="submit" class="btn btn-default" [disabled]="topicForm.invalid" (click)="addTopic()">Submit</button>
     </div>
-
     <div class="submitted-message" *ngIf="submitted">
         <div class="alert alert-success" role="alert" *ngIf="displayInfo">
             <h4 class="alert-heading">{{displayInfo.info}}</h4>

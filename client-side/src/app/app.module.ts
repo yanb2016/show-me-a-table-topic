@@ -15,7 +15,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TopicDetailComponent } from './components/topic-detail/topic-detail.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [

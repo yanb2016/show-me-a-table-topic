@@ -1,11 +1,8 @@
 <div class="container">
-  <h2>Most popular topics</h2>
-  <div class="list-group">
-    <div class="list-group-item" *ngFor="let topic of (topics | search: searchTerm)">
-      <div><strong class="title"> <a [routerLink]="['/topic', topic.id]">{{topic.name}}</a></strong></div>
-      <div><a title="Filter by category" class="{{'pull-left badge category diff-' + topic.category.toLocaleLowerCase()}}" [routerLink]="['/topics', topic.category]">
-        {{topic.category}}
-      </a></div>
+  <h3>Top 10 Most Popular Topics</h3>
+  <div class="accordion" id="accordionExample">
+    <div class="card"  *ngFor="let topic of (topics | search: searchTerm)" >
+      <app-topic-detail [topic]=topic></app-topic-detail>
     </div>
   </div>
 </div>
