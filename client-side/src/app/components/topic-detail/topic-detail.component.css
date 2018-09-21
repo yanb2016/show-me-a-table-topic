@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+  }
+.badge-secondary {
+  margin-left:13px;
+}
+.btn-link {
+  font-size: 1.1em;
+  color: #4688BC;
+  white-space: normal;
+  text-align: left;
+  text-decoration: none;
+}
+
+h5 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like {
+  background-color: #4688BC;
+  color: white;
+}
+
+.card-body {
+  padding-left: 33px;
+}

@@ -1,0 +1,15 @@
+<div class="card-header" id="{{topic._id}}">
+    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" attr.data-target="#collapse{{topic.id}}" aria-expanded="false" attr.aria-controls="collapse{{topic.id}}">
+      {{topic.name}}
+    </button>
+  <h5>
+    <a class="badge badge-secondary" [routerLink]="['/topics', topic.category]">{{topic.category}}</a>
+    <button class="btn-right badge navbar-right like" (click)="handleLikes(topic.id, 1)" *ngIf="!isLiked">Like</button>
+    <button class="btn-right badge navbar-right liked" (click)="handleLikes(topic.id, -1)" *ngIf="isLiked">Liked</button>
+  </h5>
+</div>
+<div id="collapse{{topic.id}}" class="collapse" attr.aria-labelledby="{{topic._id}}" data-parent="#accordionExample">
+  <div class="card-body">
+    {{topic.desc || "No description"}}
+  </div>
+</div>
