@@ -1,0 +1,10 @@
+.card-body {
+    min-height: 400px;
+}
+.container {
+    margin-top: 20px;
+}
+
+p {
+    font-size: 16px;
+}
