@@ -13,16 +13,11 @@ export class DataService {
   constructor(private httpClient: HttpClient,
               private auth: AuthService) { }
 
-  getTopics(pageNumber:number): Observable<Topic[]> {
-    this.httpClient.get(`api/v1/topics/pagenumber/${pageNumber}`)
-      .toPromise()
-      .then((res: any) => {
-        this._topicSource.next(res);
-      })
-      .catch(e => {
-        this.handleError(e)
-      });
-      return this._topicSource.asObservable();
+  getTopics(pageNumber:number): Promise<Topic[]> {
+    return this.httpClient.get(`api/v1/topics/pagenumber/${pageNumber}`)
+    .toPromise()
+    .then((res: any) => res)    
+    .catch(this.handleError);
   }
   getPopularTopics(): Observable<Topic[]> {
     this.httpClient.get('api/v1/popularTopics')
@@ -33,29 +28,26 @@ export class DataService {
       .catch(this.handleError);
       return this._topicSource.asObservable();
   }
-  getSearchedTopics(category: string):  Promise<Topic[]> {
-     return this.httpClient.get(`api/v1/topics/${category}`)
+  getSearchedTopics(category: string, pagenumber: number):  Promise<Topic[]> {
+     return this.httpClient.get(`api/v1/topics/${category}/${pagenumber}`)
       .toPromise()
-      .then((res: any) => res)    
+      .then((res: any) => {
+        console.log(res);
+        return res;
+      })    
       .catch(this.handleError);
   }
-  getTopic(id: number): Promise<Topic> {
-    return this.httpClient.get(`api/v1/topic/${id}`)
-      .toPromise()
-      .then((res: any) => res)    
-      .catch(this.handleError);
-  }
-  getIdeas(): Promise<any> {
-    return this.httpClient.get('api/v1/ideas')
+  getIdeas(pageNumber:number): Promise<any> {
+    return this.httpClient.get(`api/v1/ideas/pagenumber/${pageNumber}`)
     .toPromise()
-    .then((res: any) => res);
+    .then((res: any) => res)
+    .catch(this.handleError)
   }
 
   addTopic(topic: Topic) {
     const options = {
       headers: new HttpHeaders({
-        'constent-type': 'application/json',
-        // 'Authorization': 'bearer ' + this.auth.getToken()
+        'constent-type': 'application/json'
       })
     };
     return this.httpClient.post('editor/topics', topic, options)
@@ -65,14 +57,13 @@ export class DataService {
     })
     .catch(this.handleError);
   }
-  updateTopic(id: number) {
+  handlLikes(id: number, action: any) {
     const options = {
       headers: new HttpHeaders({
         'constent-type': 'application/json',
-        // 'Authorization': 'bearer ' + this.auth.getToken()
       })
     };
-    return this.httpClient.put(`editor/topics/${id}`, options)
+    return this.httpClient.put(`editor/topics/${id}/${action}`, options)
     .toPromise()
     .then((res: any) => {
       return res;
@@ -80,6 +71,7 @@ export class DataService {
     .catch(this.handleError);
   }
   private handleError(err: any): Promise<any> {
+    console.log(err)
     return Promise.reject(err.error || err);
   }
 }
