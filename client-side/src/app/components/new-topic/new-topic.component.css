@@ -1,7 +1,17 @@
 .container {
   margin-top: 10px;
+  height: 500px;
 }
 #resetBtn {
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.mb-0 {
+ cursor: pointer;
+}
+
+.btn-default {
+  background-color: #4688BC;
+  color: white;
 }

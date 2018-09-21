@@ -17,27 +17,24 @@ const DEFAULT_TOPIC = {
   styleUrls: ['./new-topic.component.css']
 })
 export class NewTopicComponent implements OnInit {
-  message: any;
-  errMsg: any;
+  submitted: boolean = false;
+  displayInfo: any;
   newTopic: Topic = Object.assign({},DEFAULT_TOPIC);
-  categories: string[] = ['sport', 'life', 'study', 'pets', 'travel', 'music']
   constructor(private dataService: DataService,
               private auth: AuthService) { }
   ngOnInit() {
     this.newTopic.author = this.auth.getEmail();
   }
-
   addTopic() {
+    this.submitted = true;
+    console.log(this.submitted)
+    this.newTopic.category = this.newTopic.category.toLowerCase();
     this.dataService.addTopic(this.newTopic)
     .then(res=> {
-      this.message = res;
+      this.displayInfo = res;
     })
     .catch(error=> {
-      this.errMsg = error.error;
+      this.displayInfo = error;
     })
-
-  }
-  resetForm() {
-    this.newTopic = Object.assign({},DEFAULT_TOPIC)
   }
 }
