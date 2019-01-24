@@ -26,9 +26,9 @@ freeCodeCamp.org的存在是因为像你这样的数千名志愿者。我们很�
 
 1. [贡献予开源代码库](#contribution-to-this-open-source-codebase)。帮助编辑[指南文章](https://guide.freecodecamp.org/)，[编码挑战](https://learn.freecodecamp.org/)，或修复学习平台上的错误。
 
-2.在我们的[公共论坛](https://www.freecodecamp.org/forum/)上帮助营员。 [回答他们的编码问题](https://www.freecodecamp.org/forum/?max_posts=1)或[为他们的编码项目给予反馈](https://www.freecodecamp.org/forum/c/project反馈系统开发与？max_posts = 1)
+2. 在我们的[公共论坛](https://www.freecodecamp.org/forum/)上帮助营员。 [回答他们的编码问题](https://www.freecodecamp.org/forum/?max_posts=1)或[为他们的编码项目给予反馈](https://www.freecodecamp.org/forum/c/project-feedback?max_posts=1)。
 
-3.帮助我们为[YouTube频道视频](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ/videos)添加字幕。
+3. 帮助我们为[YouTube频道视频](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ/videos)添加字幕。
 
 ## 贡献予开源代码库
 
